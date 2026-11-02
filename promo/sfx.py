@@ -1,0 +1,33 @@
+"""Synthesises simple sound effects (tick, ding, whoosh) at given times into a WAV."""
+import sys, json, wave
+import numpy as np
+out, dur, evs = sys.argv[1], float(sys.argv[2]), json.loads(sys.argv[3])
+SR = 44100
+track = np.zeros(int(SR * (dur + 1)))
+def env(n, a=.004, d=8.0):
+    t = np.arange(n) / SR
+    return np.minimum(1, t / a) * np.exp(-d * t)
+def tick():
+    n = int(.09 * SR); t = np.arange(n) / SR
+    return .5 * np.sin(2 * np.pi * 1250 * t) * env(n, .002, 45)
+def ding():
+    n = int(1.1 * SR); t = np.arange(n) / SR
+    s = sum(a * np.sin(2 * np.pi * f * t) for f, a in [(880, .5), (1320, .3), (1760, .15), (2640, .08)])
+    up = np.where(t > .09, 1.0, 0.0)  # second note a fifth higher: "ding-ding"
+    s2 = sum(a * np.sin(2 * np.pi * f * 1.5 * t) for f, a in [(880, .45), (1320, .25), (1760, .1)])
+    return .55 * (s * (1 - up) + s2 * up) * env(n, .003, 4.5)
+def whoosh():
+    n = int(.45 * SR); t = np.arange(n) / SR
+    noise = np.random.default_rng(1).standard_normal(n)
+    k = np.ones(40) / 40; noise = np.convolve(noise, k, "same")  # low-pass
+    shape = np.sin(np.pi * t / t[-1]) ** 2
+    return .9 * noise * shape
+FX = {"tick": tick(), "ding": ding(), "whoosh": whoosh()}
+for e in evs:
+    s = FX[e["s"]]; i = int(e["t"] * SR)
+    track[i:i + len(s)] += s[:len(track) - i]
+track = track[:int(SR * dur)]
+track = np.clip(track / max(1e-9, np.abs(track).max()) * .8, -1, 1)
+with wave.open(out, "wb") as w:
+    w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+    w.writeframes((track * 32767).astype("<i2").tobytes())

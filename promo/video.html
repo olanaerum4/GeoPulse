@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b1020}
+body{font-family:"Inter Display",Inter,Outfit,system-ui,sans-serif;color:#f1f5f9}
+#st{position:relative;width:1080px;height:1920px;background:radial-gradient(circle at 30% 10%,#23306b,#0b1020 62%);overflow:hidden}
+.abs{position:absolute;left:0;right:0;text-align:center}
+.brand{top:150px;display:flex;justify-content:center}
+.brand span{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);padding:14px 34px;border-radius:99px;font-size:38px;font-weight:800;letter-spacing:.01em}
+.brand b{background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dots{top:250px;display:flex;justify-content:center;gap:16px}
+.dots i{width:60px;height:12px;border-radius:9px;background:rgba(255,255,255,.15)}
+.dots i.on{background:linear-gradient(90deg,#38bdf8,#818cf8)}
+.q{top:320px;padding:0 90px;font-size:78px;font-weight:900;line-height:1.08;letter-spacing:-.01em}
+.q u{text-decoration:none;background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cat{top:300px}
+.card{position:absolute;left:110px;right:110px;height:400px;border-radius:56px;background:#161d36;border:5px solid #27304f;display:flex;align-items:center;gap:44px;padding:0 60px}
+.card .fl{font-size:190px;line-height:1}
+.card .nm{font-size:72px;font-weight:900;line-height:1.05}
+.card .v{font-size:84px;font-weight:900;color:#38bdf8;font-variant-numeric:tabular-nums;line-height:1.1;margin-top:8px}
+.card .v small{font-size:38px;color:#94a3b8;font-weight:700;margin-left:10px}
+.card .v.q{color:#64748b}
+.card.win{border-color:#34d399;box-shadow:0 0 0 14px rgba(52,211,153,.22),0 30px 80px -20px rgba(52,211,153,.5)}
+.card.lose{opacity:.55}
+.badge{position:absolute;right:-26px;top:-26px;width:110px;height:110px;border-radius:50%;background:#34d399;color:#0b1020;font-size:66px;font-weight:900;display:grid;place-items:center}
+.vs{position:absolute;left:50%;width:170px;height:170px;margin-left:-85px;border-radius:50%;background:#f1f5f9;color:#0b1020;display:grid;place-items:center;font-weight:900;font-size:96px;border:10px solid #0b1020;z-index:3}
+.vs.txt{font-size:52px}
+.bar{position:absolute;left:110px;right:110px;height:18px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px}
+.fact{top:1505px;padding:0 120px;font-size:44px;font-weight:700;color:#cbd5e1;line-height:1.25}
+.fact b{color:#fff}
+.hook{top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:0 90px}
+.hook .e{font-size:220px;line-height:1}
+.hook h1{font-size:118px;font-weight:900;line-height:1.02;letter-spacing:-.02em}
+.hook p{font-size:52px;font-weight:700;color:#94a3b8}
+.grad{background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.icon{width:260px;height:260px;border-radius:64px}
+.cta{background:linear-gradient(90deg,#0284c7,#6366f1);padding:34px 70px;border-radius:99px;font-size:60px;font-weight:900;box-shadow:0 30px 80px -20px rgba(99,102,241,.7)}
+</style></head>
+<body><div id="st"></div>
+<script>
+/* ---------- Video script: edit CONFIG (or pass ?config=file.json) ---------- */
+let CONFIG={
+ hook:{emoji:"🌍",title:'Can you get <span class="grad">3/3</span>?',sub:"Guess before the timer runs out"},
+ questions:[
+  {q:'Where are there <u>MORE</u> McDonald\'s?',a:{f:"🇫🇷",n:"France",v:1560},b:{f:"🇯🇵",n:"Japan",v:2980},unit:"",fact:"Japan has more McDonald's than the <b>entire African continent</b>."},
+  {q:'Which country has <u>MORE</u> islands?',a:{f:"🇮🇩",n:"Indonesia",v:17504},b:{f:"🇸🇪",n:"Sweden",v:267570},unit:"",fact:"Sweden has over <b>267,000 islands</b>, the most on Earth."},
+  {q:'Who drinks <u>MORE</u> tea per person?',a:{f:"🇬🇧",n:"UK",v:1.9},b:{f:"🇹🇷",n:"Türkiye",v:3.2},unit:"kg/yr",dec:1,fact:"Not Britain! <b>Türkiye</b> drinks the most tea in the world."}
+ ],
+ outro:{title:'How many did you get? 👇',sub:"Comment your score",cta:"Play free · link in bio"}
+};
+const HOOK=2.4,QLEN=6.4,OUT=4;
+const ease=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
+const back=x=>{x=Math.min(1,Math.max(0,x));const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const fmt=(v,d)=>v.toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
+function duration(){return HOOK+CONFIG.questions.length*QLEN+OUT}
+function events(){const e=[{t:0,s:"whoosh"}];CONFIG.questions.forEach((q,i)=>{const s=HOOK+i*QLEN;e.push({t:s,s:"whoosh"},{t:s+.9,s:"tick"},{t:s+1.9,s:"tick"},{t:s+2.9,s:"tick"},{t:s+3.9,s:"ding"})});e.push({t:HOOK+CONFIG.questions.length*QLEN,s:"whoosh"});return e}
+function brand(){return`<div class="abs brand"><span>🌍 <b>GeoPulse</b></span></div>`}
+function render(t){
+ const st=document.getElementById("st");const nq=CONFIG.questions.length;
+ if(t<HOOK){const u=t;const s=back(u/.5);
+  st.innerHTML=brand()+`<div class="abs hook" style="opacity:${ease(u/.3)}"><div class="e" style="transform:scale(${s}) rotate(${Math.sin(u*6)*6}deg)">${CONFIG.hook.emoji}</div><h1 style="transform:scale(${.8+.2*s})">${CONFIG.hook.title}</h1><p style="opacity:${ease((u-.5)/.4)}">${CONFIG.hook.sub}</p></div>`;return}
+ const qi=Math.floor((t-HOOK)/QLEN);
+ if(qi<nq){const Q=CONFIG.questions[qi],u=t-HOOK-qi*QLEN;
+  const bWins=Q.lower?Q.b.v<Q.a.v:Q.b.v>Q.a.v,rev=u>=3.9,cu=ease((u-3.9)/.7);
+  const qin=ease(u/.35),ain=ease((u-.15)/.4),bin=ease((u-.3)/.4);
+  const cd=u<.9?"VS":u<3.9?String(3-Math.floor(u-.9)):"VS";const pulse=u>=.9&&u<3.9?1+.18*Math.max(0,1-((u-.9)%1)/.25):1;
+  const left=u<.9?1:u<3.9?1-(u-.9)/3:0,bc=left>.5?"#34d399":left>.2?"#fbbf24":"#fb7185";
+  const val=(c)=>rev?`${fmt(c.v*cu,Q.dec)}${Q.unit?`<small>${Q.unit}</small>`:""}`:"?";
+  const card=(c,y,inn,dir,win)=>`<div class="card ${rev?(win?"win":"lose"):""}" style="top:${y}px;opacity:${inn};transform:translateX(${(1-inn)*dir*700}px) scale(${rev&&win?1+.04*ease((u-3.9)/.3):1})"><div class="fl">${c.f}</div><div><div class="nm">${c.n}</div><div class="v ${rev?"":"q"}">${val(c)}</div></div>${rev&&win?`<div class="badge" style="transform:scale(${back((u-4)/.35)})">✓</div>`:""}</div>`;
+  st.innerHTML=brand()+`<div class="abs dots">${CONFIG.questions.map((_,i)=>`<i class="${i<=qi?"on":""}"></i>`).join("")}</div>`+
+   `<div class="abs q" style="opacity:${qin};transform:translateY(${(1-qin)*40}px)">${Q.q}</div>`+
+   `<div class="bar" style="top:590px"><i style="width:${left*100}%;background:${bc}"></i></div>`+
+   card(Q.a,650,ain,-1,!bWins)+card(Q.b,1080,bin,1,bWins)+
+   `<div class="vs ${cd==="VS"?"txt":""}" style="top:${(650+400+1080)/2-85}px;transform:scale(${pulse*ease(u/.4)})">${cd}</div>`+
+   `<div class="abs fact" style="opacity:${ease((u-4.5)/.4)};transform:translateY(${(1-ease((u-4.5)/.4))*30}px)">💡 ${Q.fact}</div>`;return}
+ const u=t-HOOK-nq*QLEN,O=CONFIG.outro;
+ st.innerHTML=brand()+`<div class="abs hook"><h1 style="font-size:104px;opacity:${ease(u/.4)};transform:scale(${.85+.15*back(u/.5)})">${O.title}</h1><p style="opacity:${ease((u-.3)/.4)}">${O.sub}</p>
+  <img class="icon" src="../icon.svg" style="opacity:${ease((u-.6)/.4)};transform:scale(${back((u-.6)/.5)})"><div class="cta" style="opacity:${ease((u-1)/.4)};transform:scale(${(1+.03*Math.sin(u*6))*back((u-1)/.5)})">${O.cta}</div></div>`;
+}
+const qs=new URLSearchParams(location.search).get("config");
+window.ready=(qs?fetch(qs).then(r=>r.json()).then(c=>{CONFIG=c}):Promise.resolve()).then(()=>{render(0);return{duration:duration(),events:events()}});
+</script></body></html>
