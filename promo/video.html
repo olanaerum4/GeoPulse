@@ -56,7 +56,7 @@ const back=x=>{x=Math.min(1,Math.max(0,x));const c=1.7;return 1+(c+1)*Math.pow(x
 const fmt=(v,d)=>v.toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
 function duration(){return HOOK+CONFIG.questions.length*QLEN+OUT}
 function events(){const e=[{t:0,s:"whoosh"}];CONFIG.questions.forEach((q,i)=>{const s=HOOK+i*QLEN;e.push({t:s,s:"whoosh"},{t:s+.9,s:"tick"},{t:s+1.9,s:"tick"},{t:s+2.9,s:"tick"},{t:s+3.9,s:"ding"})});e.push({t:HOOK+CONFIG.questions.length*QLEN,s:"whoosh"});return e}
-function brand(){return`<div class="abs brand"><span>🌍 <b>GeoWawe</b></span></div>`}
+function brand(){return`<div class="abs brand"><span><img src="../icon.svg" style="width:52px;height:52px;border-radius:14px;vertical-align:middle;margin:-6px 12px 0 -14px"><b>GeoWawe</b></span></div>`}
 function render(t){
  const st=document.getElementById("st");const nq=CONFIG.questions.length;
  if(t<HOOK){const u=t;const s=back(u/.5);

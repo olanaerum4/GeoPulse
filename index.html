@@ -32,6 +32,7 @@ body{min-height:100%;font-family:Outfit,system-ui,sans-serif;color:var(--text);b
 #app{width:100%;max-width:880px;display:flex;flex-direction:column;gap:10px;flex:1}
 header{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .logo{font-weight:900;font-size:22px;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:8px}.logo .mk{width:32px;height:32px;border-radius:9px;flex:none}
 .stats{display:flex;gap:8px;align-items:center}
 .chip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px 12px;text-align:center}
 .chip small{display:block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700}
@@ -181,7 +182,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 </head>
 <body>
 <div id="app">
-<header><div class="logo" onclick="menu()" title="Home">🌍 GeoWawe</div>
+<header><div class="logo" onclick="menu()" title="Home"><img class="mk" src="icon.svg" alt="">GeoWawe</div>
 <div class="stats"><div class="chip" data-g><small>Streak</small><b id="sc">0</b></div><div class="chip" data-g><small>Best</small><b id="bs">0</b></div><button class="icon" id="hm" data-g onclick="menu()" title="Home" aria-label="Back to home">🏠</button><button class="icon" id="th" onclick="cycleTheme()" title="Theme" aria-label="Toggle theme">🌓</button></div></header>
 <section id="home">
  <div class="hero">
