@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GeoPulse: How well do you know the world?</title>
+<title>GeoWawe: How well do you know the world?</title>
 <meta name="description" content="More McDonald's in France or the USA? Compare countries on population, wealth, coffee, beer, Nobel Prizes and more. A fast, free geography game.">
 <meta name="theme-color" content="#eef4fb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="GeoPulse">
-<meta property="og:title" content="GeoPulse: How well do you know the world?">
+<meta name="apple-mobile-web-app-title" content="GeoWawe">
+<meta property="og:title" content="GeoWawe: How well do you know the world?">
 <meta property="og:description" content="More McDonald's in France or the USA? Test your instincts in this fast country-comparison game.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://geowawe.org/">
+<link rel="canonical" href="https://geowawe.org/">
 <meta name="twitter:card" content="summary">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -179,7 +181,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 </head>
 <body>
 <div id="app">
-<header><div class="logo" onclick="menu()" title="Home">🌍 GeoPulse</div>
+<header><div class="logo" onclick="menu()" title="Home">🌍 GeoWawe</div>
 <div class="stats"><div class="chip" data-g><small>Streak</small><b id="sc">0</b></div><div class="chip" data-g><small>Best</small><b id="bs">0</b></div><button class="icon" id="hm" data-g onclick="menu()" title="Home" aria-label="Back to home">🏠</button><button class="icon" id="th" onclick="cycleTheme()" title="Theme" aria-label="Toggle theme">🌓</button></div></header>
 <section id="home">
  <div class="hero">
@@ -417,9 +419,9 @@ function over(){
 <div style="display:flex;justify-content:space-around"><div class="chip"><small>Streak</small><b>${S.score}</b></div><div class="chip"><small>Best</small><b>${best(S.mode)}</b></div></div>
 <button class="pri" id="again" onclick="start(S.mode)">Play again 🔄</button><button class="sec" onclick="share()">📤 Share score</button><button class="sec" onclick="menu()">🏠 Home</button>
 <p class="kb" style="font-size:12px">Press Enter to play again</p></div>`;$("again").focus()}
-function share(){const t=`🌍 GeoPulse (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
+function share(){const t=`🌍 GeoWawe (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
  if(navigator.share){navigator.share({text:t,url:location.href}).catch(()=>{});return}
- (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
+ (navigator.clipboard?navigator.clipboard.writeText(location.protocol.startsWith("http")?t+" "+location.origin:t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
 const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],ff:["🍔","More McDonald's in France or the USA? Coffee, beer, Nobel Prizes, metal bands and more."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
 function showGame(on){document.body.classList.toggle("ingame",on);$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
 function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}

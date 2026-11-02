@@ -1,6 +1,6 @@
 {
-  "name": "GeoPulse: How well do you know the world?",
-  "short_name": "GeoPulse",
+  "name": "GeoWawe: How well do you know the world?",
+  "short_name": "GeoWawe",
   "description": "Compare countries on population, wealth, coffee, beer, Nobel Prizes and more.",
   "start_url": "./",
   "scope": "./",

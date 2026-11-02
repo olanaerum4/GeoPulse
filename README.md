@@ -1,4 +1,4 @@
-# 🌍 GeoPulse
+# 🌍 GeoWawe
 
 A fast geography game in a single HTML file. Compare countries on population, area, wealth, borders, time zones and more, or guess the flag.
 

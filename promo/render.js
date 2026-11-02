@@ -5,7 +5,7 @@ const { chromium } = require("playwright");
 const fs = require("fs"), path = require("path"), os = require("os");
 const { execFileSync } = require("child_process");
 (async () => {
-  const [cfgPath, out = "geopulse-promo.mp4"] = process.argv.slice(2);
+  const [cfgPath, out = "geowawe-promo.mp4"] = process.argv.slice(2);
   const FPS = 30, dir = fs.mkdtempSync(path.join(os.tmpdir(), "gp-frames-"));
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });

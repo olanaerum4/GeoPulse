@@ -1,4 +1,4 @@
-# GeoPulse promo videos
+# GeoWawe promo videos
 
 Generates vertical 1080×1920 quiz videos (TikTok / Reels / Shorts) with a hook, 3 questions with a 3-2-1 countdown and reveal, and an outro. Sound effects (ticks, ding, whoosh) are synthesised, so there are no music rights to worry about. Add a trending sound in the TikTok app if you like.
 

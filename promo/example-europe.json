@@ -5,5 +5,5 @@
     { "q": "Where are there <u>MORE</u> metal bands per person?", "a": { "f": "🇩🇪", "n": "Germany", "v": 18 }, "b": { "f": "🇳🇴", "n": "Norway", "v": 34 }, "unit": "per 100k", "fact": "Only <b>Finland and Sweden</b> have more metal bands per person." },
     { "q": "Who has won <u>MORE</u> Winter Olympic golds?", "a": { "f": "🇺🇸", "n": "USA", "v": 113 }, "b": { "f": "🇳🇴", "n": "Norway", "v": 148 }, "unit": "golds", "fact": "Norway has <b>5.5 million people</b> and the most Winter Olympic golds ever." }
   ],
-  "outro": { "title": "How many did you get? 👇", "sub": "Comment your score", "cta": "Play free · link in bio" }
+  "outro": { "title": "How many did you get? 👇", "sub": "Comment your score", "cta": "Play free · geowawe.org" }
 }
