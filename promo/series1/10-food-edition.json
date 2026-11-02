@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🍔 FOOD EDITION",
+  "title": "<span class=\"grad\">#3</span> is actually insane",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Who eats <u>MORE</u> pasta per person?",
+   "a": {
+    "f": "🇮🇹",
+    "n": "Italy",
+    "v": 23
+   },
+   "b": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 9
+   },
+   "unit": "kg/yr",
+   "dec": 0,
+   "fact": "Italians eat about <b>23 kg of pasta</b> each per year."
+  },
+  {
+   "q": "Where are there <u>MORE</u> McDonald's?",
+   "a": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 2980
+   },
+   "b": {
+    "f": "🇨🇦",
+    "n": "Canada",
+    "v": 1500
+   },
+   "unit": "restaurants",
+   "dec": 0,
+   "fact": "Japan has <b>almost twice as many</b> McDonald's as Canada."
+  },
+  {
+   "q": "Who drinks <u>MORE</u> coffee per person?",
+   "a": {
+    "f": "🇧🇷",
+    "n": "Brazil",
+    "v": 6.1
+   },
+   "b": {
+    "f": "🇫🇮",
+    "n": "Finland",
+    "v": 12
+   },
+   "unit": "kg/yr",
+   "dec": 1,
+   "fact": "Brazil grows the coffee. <b>Finland drinks it.</b>"
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

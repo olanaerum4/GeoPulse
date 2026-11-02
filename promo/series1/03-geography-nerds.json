@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🤓 NERDS ONLY",
+  "title": "Only geography nerds get <span class=\"grad\">3/3</span>",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇳🇬",
+    "n": "Nigeria",
+    "v": 230
+   },
+   "b": {
+    "f": "🇷🇺",
+    "n": "Russia",
+    "v": 144
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Nigeria has <b>more people than Russia</b> and is still growing fast."
+  },
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇦🇺",
+    "n": "Australia",
+    "v": 7.69
+   },
+   "b": {
+    "f": "🇧🇷",
+    "n": "Brazil",
+    "v": 8.52
+   },
+   "unit": "M km²",
+   "dec": 2,
+   "fact": "Brazil is bigger than Australia, and <b>bigger than the contiguous US</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇧🇷",
+    "n": "Brazil",
+    "v": 212
+   },
+   "b": {
+    "f": "🇵🇰",
+    "n": "Pakistan",
+    "v": 251
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Pakistan is the <b>5th most populous country</b> on Earth."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

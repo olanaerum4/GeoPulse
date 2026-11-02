@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🇳🇴 NORWAY",
+  "title": "Norway is <span class=\"grad\">NOT</span> what you think",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Who drinks <u>MORE</u> coffee per person?",
+   "a": {
+    "f": "🇳🇴",
+    "n": "Norway",
+    "v": 9.9
+   },
+   "b": {
+    "f": "🇮🇹",
+    "n": "Italy",
+    "v": 5.9
+   },
+   "unit": "kg/yr",
+   "dec": 1,
+   "fact": "Norwegians drink <b>way more coffee</b> than Italians."
+  },
+  {
+   "q": "Which country has <u>MORE</u> islands?",
+   "a": {
+    "f": "🇳🇴",
+    "n": "Norway",
+    "v": 239057
+   },
+   "b": {
+    "f": "🇬🇷",
+    "n": "Greece",
+    "v": 6000
+   },
+   "unit": "",
+   "dec": 0,
+   "fact": "Norway has <b>over 239,000 islands</b>, second only to Sweden."
+  },
+  {
+   "q": "Which has <u>MORE</u> people?",
+   "a": {
+    "f": "🇳🇴",
+    "n": "Norway",
+    "v": 5.5
+   },
+   "b": {
+    "f": "🇸🇬",
+    "n": "Singapore",
+    "v": 5.9
+   },
+   "unit": "million",
+   "dec": 1,
+   "fact": "Tiny Singapore has <b>more people than all of Norway</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

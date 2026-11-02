@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🇪🇺 EUROPE QUIZ",
+  "title": "Europeans, prove it: <span class=\"grad\">3/3</span>",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇫🇷",
+    "n": "France",
+    "v": 551
+   },
+   "b": {
+    "f": "🇪🇸",
+    "n": "Spain",
+    "v": 506
+   },
+   "unit": "k km²",
+   "dec": 0,
+   "fact": "Mainland France is the <b>biggest country in the EU</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> islands?",
+   "a": {
+    "f": "🇬🇷",
+    "n": "Greece",
+    "v": 6000
+   },
+   "b": {
+    "f": "🇫🇮",
+    "n": "Finland",
+    "v": 178947
+   },
+   "unit": "",
+   "dec": 0,
+   "fact": "Finland has <b>nearly 179,000 islands</b>."
+  },
+  {
+   "q": "Where do people live <u>LONGER</u>?",
+   "a": {
+    "f": "🇪🇸",
+    "n": "Spain",
+    "v": 83.5
+   },
+   "b": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 81
+   },
+   "unit": "years",
+   "dec": 1,
+   "fact": "Spain has one of the <b>highest life expectancies</b> on Earth."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "⚠️ HARD MODE",
+  "title": "Bet you get <span class=\"grad\">#3</span> wrong 😳",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Where are there <u>MORE</u> McDonald's?",
+   "a": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 2980
+   },
+   "b": {
+    "f": "🇫🇷",
+    "n": "France",
+    "v": 1560
+   },
+   "unit": "restaurants",
+   "dec": 0,
+   "fact": "Japan has almost <b>twice as many</b> McDonald's as France."
+  },
+  {
+   "q": "Who drinks <u>MORE</u> coffee per person?",
+   "a": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 4.4
+   },
+   "b": {
+    "f": "🇫🇮",
+    "n": "Finland",
+    "v": 12
+   },
+   "unit": "kg/yr",
+   "dec": 1,
+   "fact": "Finns drink the most coffee on Earth: <b>about 12 kg each a year</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> islands?",
+   "a": {
+    "f": "🇸🇪",
+    "n": "Sweden",
+    "v": 267570
+   },
+   "b": {
+    "f": "🇮🇩",
+    "n": "Indonesia",
+    "v": 17504
+   },
+   "unit": "",
+   "dec": 0,
+   "fact": "Sweden has over <b>267,000 islands</b>, the most in the world."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

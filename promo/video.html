@@ -34,6 +34,10 @@ body{font-family:"Inter Display",Inter,Outfit,system-ui,sans-serif;color:#f1f5f9
 .hook .e{font-size:220px;line-height:1}
 .hook h1{font-size:118px;font-weight:900;line-height:1.02;letter-spacing:-.02em}
 .hook p{font-size:52px;font-weight:700;color:#94a3b8}
+.tag{background:#e11d48;color:#fff;font-size:50px;font-weight:900;padding:16px 40px;border-radius:20px;letter-spacing:.04em;box-shadow:0 20px 60px -15px rgba(225,29,72,.8)}
+.tease{display:flex;align-items:center;gap:40px;margin-top:30px}.tease span{font-size:200px;line-height:1;display:block}
+.tease b{width:130px;height:130px;border-radius:50%;background:#f1f5f9;color:#0b1020;display:grid;place-items:center;font-size:52px;font-weight:900}
+.tsub{font-size:46px;font-weight:800;color:#fbbf24}
 .grad{background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .icon{width:260px;height:260px;border-radius:64px}
 .cta{background:linear-gradient(90deg,#0284c7,#6366f1);padding:34px 70px;border-radius:99px;font-size:60px;font-weight:900;box-shadow:0 30px 80px -20px rgba(99,102,241,.7)}
@@ -50,7 +54,7 @@ let CONFIG={
  ],
  outro:{title:'How many did you get? 👇',sub:"Comment your score",cta:"Play free · geowawe.org"}
 };
-const HOOK=2.4,QLEN=6.4,OUT=4;
+const HOOK=2.6,QLEN=6.4,OUT=4;
 const ease=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
 const back=x=>{x=Math.min(1,Math.max(0,x));const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const fmt=(v,d)=>v.toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
@@ -59,8 +63,12 @@ function events(){const e=[{t:0,s:"whoosh"}];CONFIG.questions.forEach((q,i)=>{co
 function brand(){return`<div class="abs brand"><span><img src="../icon.svg" style="width:52px;height:52px;border-radius:14px;vertical-align:middle;margin:-6px 12px 0 -14px"><b>GeoWawe</b></span></div>`}
 function render(t){
  const st=document.getElementById("st");const nq=CONFIG.questions.length;
- if(t<HOOK){const u=t;const s=back(u/.5);
-  st.innerHTML=brand()+`<div class="abs hook" style="opacity:${ease(u/.3)}"><div class="e" style="transform:scale(${s}) rotate(${Math.sin(u*6)*6}deg)">${CONFIG.hook.emoji}</div><h1 style="transform:scale(${.8+.2*s})">${CONFIG.hook.title}</h1><p style="opacity:${ease((u-.5)/.4)}">${CONFIG.hook.sub}</p></div>`;return}
+ if(t<HOOK){const u=t,H=CONFIG.hook,L=CONFIG.questions[H.teaseQ!=null?H.teaseQ:CONFIG.questions.length-1];
+  // frame 0 is fully readable (TikTok cover + no blank start); punch-in zoom + shake
+  const punch=1+.12*Math.exp(-u*7)*Math.cos(u*22),shake=Math.sin(u*40)*Math.exp(-u*5)*10;
+  const tag=H.tag?`<div class="tag" style="transform:scale(${1+.06*Math.sin(u*10)})">${H.tag}</div>`:"";
+  const tease=H.tease!==false?`<div class="tease"><span style="transform:translateY(${Math.sin(u*7)*10}px)">${L.a.f}</span><b>VS</b><span style="transform:translateY(${Math.sin(u*7+2)*10}px)">${L.b.f}</span></div><div class="tsub">${H.teaseText||"Wait for the last one…"}</div>`:"";
+  st.innerHTML=brand()+`<div class="abs hook" style="gap:34px">${tag}<h1 style="transform:scale(${punch}) translateX(${shake}px)">${H.title}</h1>${H.sub?`<p>${H.sub}</p>`:""}${tease}</div>`;return}
  const qi=Math.floor((t-HOOK)/QLEN);
  if(qi<nq){const Q=CONFIG.questions[qi],u=t-HOOK-qi*QLEN;
   const bWins=Q.lower?Q.b.v<Q.a.v:Q.b.v>Q.a.v,rev=u>=3.9,cu=ease((u-3.9)/.7);

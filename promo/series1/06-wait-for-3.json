@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "👀 WAIT FOR IT",
+  "title": "Wait for <span class=\"grad\">#3</span>…",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Where are there <u>MORE</u> Starbucks?",
+   "a": {
+    "f": "🇦🇺",
+    "n": "Australia",
+    "v": 60
+   },
+   "b": {
+    "f": "🇰🇷",
+    "n": "South Korea",
+    "v": 2000
+   },
+   "unit": "stores",
+   "dec": 0,
+   "fact": "Australians famously <b>rejected Starbucks</b> in 2008."
+  },
+  {
+   "q": "Which country has <u>MORE</u> billionaires?",
+   "a": {
+    "f": "🇮🇳",
+    "n": "India",
+    "v": 200
+   },
+   "b": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 132
+   },
+   "unit": "",
+   "dec": 0,
+   "fact": "India now has <b>around 200 billionaires</b>."
+  },
+  {
+   "q": "Who eats <u>MORE</u> chocolate per person?",
+   "a": {
+    "f": "🇨🇭",
+    "n": "Switzerland",
+    "v": 11
+   },
+   "b": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 5
+   },
+   "unit": "kg/yr",
+   "dec": 0,
+   "fact": "The Swiss eat about <b>11 kg of chocolate</b> each per year."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

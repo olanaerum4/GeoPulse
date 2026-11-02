@@ -1,0 +1,63 @@
+{
+ "hook": {
+  "tag": "❌ TRICK QUESTION",
+  "title": "You'll guess <span class=\"grad\">#1</span> wrong",
+  "teaseText": "It starts with this one 👀",
+  "teaseQ": 0
+ },
+ "questions": [
+  {
+   "q": "Which is <u>MORE</u> crowded?",
+   "a": {
+    "f": "🇧🇩",
+    "n": "Bangladesh",
+    "v": 1180
+   },
+   "b": {
+    "f": "🇳🇱",
+    "n": "Netherlands",
+    "v": 520
+   },
+   "unit": "per km²",
+   "dec": 0,
+   "fact": "Bangladesh packs <b>over 1,100 people</b> into every km²."
+  },
+  {
+   "q": "Which country is <u>OLDER</u> on average?",
+   "a": {
+    "f": "🇮🇹",
+    "n": "Italy",
+    "v": 48
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 49
+   },
+   "unit": "years",
+   "dec": 0,
+   "fact": "Japan has one of the <b>oldest populations</b> in the world."
+  },
+  {
+   "q": "Which is <u>RICHER</u> per person?",
+   "a": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 82000
+   },
+   "b": {
+    "f": "🇮🇪",
+    "n": "Ireland",
+    "v": 105000
+   },
+   "unit": "USD",
+   "dec": 0,
+   "fact": "Ireland's GDP per person is boosted by <b>big tech headquarters</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

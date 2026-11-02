@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🇺🇸 USA vs WORLD",
+  "title": "Americans won't like <span class=\"grad\">#3</span> 😂",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Where are men <u>TALLER</u> on average?",
+   "a": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 177
+   },
+   "b": {
+    "f": "🇳🇱",
+    "n": "Netherlands",
+    "v": 183
+   },
+   "unit": "cm",
+   "dec": 0,
+   "fact": "Dutch men are the <b>tallest in the world</b>."
+  },
+  {
+   "q": "Where do people live <u>LONGER</u>?",
+   "a": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 78.5
+   },
+   "b": {
+    "f": "🇨🇱",
+    "n": "Chile",
+    "v": 80
+   },
+   "unit": "years",
+   "dec": 1,
+   "fact": "People in Chile live <b>longer than Americans</b> on average."
+  },
+  {
+   "q": "Which country gets <u>MORE</u> tourists?",
+   "a": {
+    "f": "🇫🇷",
+    "n": "France",
+    "v": 100
+   },
+   "b": {
+    "f": "🇺🇸",
+    "n": "USA",
+    "v": 66
+   },
+   "unit": "million/yr",
+   "dec": 0,
+   "fact": "France is the <b>most visited country on Earth</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

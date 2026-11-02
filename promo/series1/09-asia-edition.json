@@ -1,0 +1,63 @@
+{
+ "hook": {
+  "tag": "🌏 ASIA EDITION",
+  "title": "<span class=\"grad\">#2</span> shocks everyone 😳",
+  "teaseText": "Wait for #2…",
+  "teaseQ": 1
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇵🇭",
+    "n": "Philippines",
+    "v": 115
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 124
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Close one! The Philippines is <b>catching up fast</b>."
+  },
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇮🇩",
+    "n": "Indonesia",
+    "v": 1.9
+   },
+   "b": {
+    "f": "🇮🇷",
+    "n": "Iran",
+    "v": 1.65
+   },
+   "unit": "M km²",
+   "dec": 2,
+   "fact": "Indonesia stretches <b>over 5,000 km</b> from east to west."
+  },
+  {
+   "q": "Where are there <u>MORE</u> Starbucks?",
+   "a": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 1900
+   },
+   "b": {
+    "f": "🇨🇳",
+    "n": "China",
+    "v": 7600
+   },
+   "unit": "stores",
+   "dec": 0,
+   "fact": "China opened <b>thousands of Starbucks</b> in just a decade."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

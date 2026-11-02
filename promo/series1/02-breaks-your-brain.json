@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🤯 BRAIN BREAKER",
+  "title": "This one <span class=\"grad\">breaks</span> people's brains",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Who drinks <u>MORE</u> tea per person?",
+   "a": {
+    "f": "🇬🇧",
+    "n": "UK",
+    "v": 1.9
+   },
+   "b": {
+    "f": "🇹🇷",
+    "n": "Türkiye",
+    "v": 3.2
+   },
+   "unit": "kg/yr",
+   "dec": 1,
+   "fact": "Not Britain! <b>Türkiye</b> drinks the most tea per person."
+  },
+  {
+   "q": "Which country has a <u>LONGER</u> coastline?",
+   "a": {
+    "f": "🇨🇦",
+    "n": "Canada",
+    "v": 202080
+   },
+   "b": {
+    "f": "🇷🇺",
+    "n": "Russia",
+    "v": 37653
+   },
+   "unit": "km",
+   "dec": 0,
+   "fact": "Canada's coastline could wrap around the Earth <b>about 5 times</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> time zones?",
+   "a": {
+    "f": "🇷🇺",
+    "n": "Russia",
+    "v": 11
+   },
+   "b": {
+    "f": "🇫🇷",
+    "n": "France",
+    "v": 12
+   },
+   "unit": "zones",
+   "dec": 0,
+   "fact": "Thanks to its overseas territories, <b>France has 12 time zones</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}
