@@ -73,14 +73,60 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 #toast.on{transform:translate(-50%,0)}
 .shake{animation:shake .4s}
 @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+[hidden]{display:none!important}
+#game{display:flex;flex-direction:column;gap:10px}
+#home{display:flex;flex-direction:column;gap:18px;padding:8px 0 24px}
+.hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 0 6px}
+.hero h1{font-size:clamp(32px,7.5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-.02em;max-width:14ch}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:clamp(15px,3.6vw,18px);max-width:34ch;font-weight:500}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--mut)}
+.cta{width:auto;padding:16px 40px;font-size:18px;border-radius:99px;box-shadow:0 10px 30px -8px color-mix(in srgb,var(--ac2) 60%,transparent)}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+#mq{display:flex;gap:14px;width:max-content;animation:mq 60s linear infinite}
+#mq img,#mq .flag{height:34px;width:auto;border-radius:5px;font-size:30px;line-height:34px;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-weight:800;text-align:center;margin-top:6px}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mode{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;text-align:left;color:var(--text);display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:14px;width:100%}
+.mode:hover{border-color:var(--ac);transform:translateY(-3px)}
+.mode .ic{font-size:30px}.mode b{font-size:19px;font-weight:900}.mode span{color:var(--mut)}
+.mode .bt{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:12px;font-weight:800;color:var(--mut)}
+.mode .bt i{font-style:normal;color:#fff;background:linear-gradient(90deg,var(--ac),var(--ac2));padding:6px 14px;border-radius:99px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.steps div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--mut)}
+.steps b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--text);color:var(--bg);font-weight:900}
+.keys{text-align:center;font-size:12px;color:var(--mut);font-weight:600}
+@media(max-width:560px){.steps{grid-template-columns:1fr}.steps div{flex-direction:row;align-items:center}}
 @media(max-width:560px){.card{min-height:180px;padding:14px 6px}.chip{padding:4px 9px}.chip b{font-size:16px}.logo{font-size:19px}#opts button{font-size:14px;padding:12px 8px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <div id="app">
-<header><div class="logo" onclick="menu()" title="Menu">🌍 GeoPulse</div>
-<div class="stats"><div class="chip"><small>Streak</small><b id="sc">0</b></div><div class="chip"><small>Best</small><b id="bs">0</b></div><button class="icon" id="th" onclick="cycleTheme()" title="Theme" aria-label="Toggle theme">🌓</button></div></header>
+<header><div class="logo" onclick="menu()" title="Home">🌍 GeoPulse</div>
+<div class="stats"><div class="chip" data-g><small>Streak</small><b id="sc">0</b></div><div class="chip" data-g><small>Best</small><b id="bs">0</b></div><button class="icon" id="hm" data-g onclick="menu()" title="Home" aria-label="Back to home">🏠</button><button class="icon" id="th" onclick="cycleTheme()" title="Theme" aria-label="Toggle theme">🌓</button></div></header>
+<section id="home">
+ <div class="hero">
+  <span class="pill" id="pill">🌍 195 countries · 3 game modes</span>
+  <h1>How well do you <em>really</em> know the world?</h1>
+  <p>Guess which country is bigger, richer, older or more connected. One wrong answer and your streak is over.</p>
+  <button class="pri cta" onclick="start('hl')">▶ Play now</button>
+ </div>
+ <div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+ <h2 class="h2">Pick a mode</h2>
+ <div class="modes" id="modes"></div>
+ <h2 class="h2">How it works</h2>
+ <div class="steps">
+  <div><b>1</b><span>Compare two countries, or name a flag</span></div>
+  <div><b>2</b><span>Answer before the timer runs out</span></div>
+  <div><b>3</b><span>Every 5 correct answers makes it harder</span></div>
+ </div>
+ <div class="lvls" id="lvls"></div>
+ <p class="keys">Keys: ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Esc home</p>
+ <div class="src" id="src"></div>
+</section>
+<div id="game" hidden>
 <div class="lvl"><span id="lv">LVL 1</span><div class="bar"><i id="lb"></i></div><span id="ln">Rookie</span></div>
 <div id="cat"></div>
 <h2 id="q"></h2>
@@ -89,6 +135,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 <section id="fq"><div class="big" id="fqf"></div><div id="opts"></div></section>
 <div id="btns"><button class="hi" onclick="ans('h')">⬆ HIGHER</button><button class="lo" onclick="ans('l')">⬇ LOWER</button></div>
 <p id="info" aria-live="polite"></p>
+</div>
 </div>
 <div id="ov"></div>
 <div id="toast" role="status"></div>
@@ -272,20 +319,20 @@ function over(){
  const nb=S.score>0&&S.score>=best(S.mode);
  $("ov").hidden=false;$("ov").innerHTML=`<div class="box"><div style="font-size:48px">${nb?"🏆":"💥"}</div><h3>${nb?"New Record!":"Game Over"}</h3><p>${MODES[S.mode]} · You reached <b>Level ${S.lv} · ${LN[S.lv]}</b></p>
 <div style="display:flex;justify-content:space-around"><div class="chip"><small>Streak</small><b>${S.score}</b></div><div class="chip"><small>Best</small><b>${best(S.mode)}</b></div></div>
-<button class="pri" id="again" onclick="start(S.mode)">Play again 🔄</button><button class="sec" onclick="share()">📤 Share score</button><button class="sec" onclick="menu()">Menu</button>
+<button class="pri" id="again" onclick="start(S.mode)">Play again 🔄</button><button class="sec" onclick="share()">📤 Share score</button><button class="sec" onclick="menu()">🏠 Home</button>
 <p style="font-size:12px">Press Enter to play again</p></div>`;$("again").focus()}
 function share(){const t=`🌍 GeoPulse (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
  if(navigator.share){navigator.share({text:t,url:location.href}).catch(()=>{});return}
  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
-function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;round()}
-function menu(){S.lock=true;S.onMenu=true;stopClock();$("ov").hidden=false;$("ov").innerHTML=`<div class="box"><div style="font-size:48px">🌍</div><h3>GeoPulse</h3><p>Compare countries on population, wealth, borders, climate and more. It gets harder every 5 correct answers, and from level 3 the whole world joins in.</p>
-<button class="pri" onclick="start('hl')">${MODES.hl}<br><small>Best: ${best("hl")}</small></button>
-<button class="pri" onclick="start('tt')">${MODES.tt}<br><small>Best: ${best("tt")}</small></button>
-<button class="pri" onclick="start('fq')">${MODES.fq}<br><small>Best: ${best("fq")}</small></button>
-<div class="lvls">${LN.slice(1).map((x,i)=>`<span>${i+1} ${x}</span>`).join("")}</div>
-<p style="font-size:12px">Keys: ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Esc menu</p>
-<div class="src" id="src">${srcLabel()}</div></div>`}
-function refreshMenu(){const e=$("src");if(e)e.innerHTML=srcLabel()}
+const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
+function showGame(on){$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
+function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}
+function menu(){S.lock=true;S.onMenu=true;stopClock();$("ov").hidden=true;showGame(false);
+ $("modes").innerHTML=Object.keys(MODES).map(m=>`<button class="mode" onclick="start('${m}')"><span class="ic">${DESC[m][0]}</span><b>${MODES[m].replace(/^\S+\s/,"")}</b><span>${DESC[m][1]}</span><div class="bt">🏆 Best: ${best(m)}<i>Play ▶</i></div></button>`).join("");
+ $("lvls").innerHTML=LN.slice(1).map((x,i)=>`<span>${i+1} ${x}</span>`).join("");
+ if(!$("mq").childElementCount){const cs=shuffle([...CORE]);$("mq").innerHTML=[...cs,...cs].map(flagHTML).join("")}
+ refreshMenu();window.scrollTo(0,0)}
+function refreshMenu(){$("src").innerHTML=srcLabel();$("pill").textContent=apiOK()?`🛰️ Live data from ${S.cnt} countries`:`🌍 ${S.src==="load"?"195":CORE.size} countries · 3 game modes`}
 
 /* ---------- Theme ---------- */
 const THEMES=["auto","light","dark"],TI={auto:"🌓",light:"☀️",dark:"🌙"};
