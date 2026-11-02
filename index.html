@@ -3,16 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GeoPulse: Higher or Lower</title>
+<title>GeoPulse: How well do you know the world?</title>
+<meta name="description" content="More McDonald's in France or the USA? Compare countries on population, wealth, coffee, beer, Nobel Prizes and more. A fast, free geography game.">
+<meta name="theme-color" content="#eef4fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GeoPulse">
+<meta property="og:title" content="GeoPulse: How well do you know the world?">
+<meta property="og:description" content="More McDonald's in France or the USA? Test your instincts in this fast country-comparison game.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eef4fb;--bg2:#dbe8f8;--card:#fff;--text:#0f172a;--mut:#64748b;--ac:#0284c7;--ac2:#6366f1;--ok:#059669;--bad:#e11d48;--warn:#d97706;--line:#e2e8f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#eef4fb;--bg2:#dbe8f8;--card:#fff;--text:#0f172a;--mut:#64748b;--ac:#0284c7;--ac2:#6366f1;--ok:#059669;--bad:#e11d48;--warn:#d97706;--line:#e2e8f0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--bg2:#17204a;--card:#161d36;--text:#f1f5f9;--mut:#94a3b8;--ac:#38bdf8;--ac2:#818cf8;--ok:#34d399;--bad:#fb7185;--warn:#fbbf24;--line:#27304f;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0b1020;--bg2:#17204a;--card:#161d36;--text:#f1f5f9;--mut:#94a3b8;--ac:#38bdf8;--ac2:#818cf8;--ok:#34d399;--bad:#fb7185;--warn:#fbbf24;--line:#27304f;color-scheme:dark}
 *{box-sizing:border-box;margin:0}
-html{height:100%}
-body{min-height:100%;font-family:Outfit,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 20% 0,var(--bg2),var(--bg) 60%);background-color:var(--bg);display:flex;flex-direction:column;align-items:center;padding:12px 16px;overflow-x:hidden}
-#app{width:100%;max-width:880px;display:flex;flex-direction:column;gap:10px}
+html{height:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{min-height:100%;font-family:Outfit,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 20% 0,var(--bg2),var(--bg) 60%);background-color:var(--bg);display:flex;flex-direction:column;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 12px) max(16px,env(safe-area-inset-left,0px));overflow-x:hidden;touch-action:manipulation}
+#app{width:100%;max-width:880px;display:flex;flex-direction:column;gap:10px;flex:1}
 header{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .logo{font-weight:900;font-size:22px;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;white-space:nowrap}
 .stats{display:flex;gap:8px;align-items:center}
@@ -23,6 +38,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .lvl{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:var(--mut)}
 .bar{flex:1;height:8px;border-radius:9px;background:var(--line);overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .4s}
+#timer{flex:none}
 #timer i{background:var(--ok)}
 #timer.warn i{background:var(--warn)}
 #timer.crit i{background:var(--bad)}
@@ -40,6 +56,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .sub{font-size:12px;font-weight:600;color:var(--mut)}
 .val{font-weight:900;font-size:clamp(22px,5vw,34px);color:var(--ac);font-variant-numeric:tabular-nums}
 .val.q{color:var(--mut)}
+.val small{display:block;font-size:max(12px,.42em);font-weight:700;color:var(--mut);letter-spacing:.02em;margin-top:2px}
 #btns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 #fq{display:none;flex-direction:column;gap:12px;align-items:center}
 #fq .big{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:22px;width:100%;display:grid;place-items:center;min-height:200px}
@@ -74,7 +91,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 .shake{animation:shake .4s}
 @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 [hidden]{display:none!important}
-#game{display:flex;flex-direction:column;gap:10px}
+#game{display:flex;flex-direction:column;gap:10px;flex:1;-webkit-user-select:none;user-select:none}
 #home{display:flex;flex-direction:column;gap:18px;padding:8px 0 24px}
 .hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 0 6px}
 .hero h1{font-size:clamp(32px,7.5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-.02em;max-width:14ch}
@@ -100,6 +117,64 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 @media(max-width:560px){.steps{grid-template-columns:1fr}.steps div{flex-direction:row;align-items:center}}
 @media(max-width:560px){.card{min-height:180px;padding:14px 6px}.chip{padding:4px 9px}.chip b{font-size:16px}.logo{font-size:19px}#opts button{font-size:14px;padding:12px 8px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ---------- Touch & mobile ---------- */
+@media(hover:none){
+ .card.click:hover,.mode:hover{transform:none;border-color:var(--line)}
+ #opts button:hover{border-color:var(--line)}
+ .card.click:active{transform:scale(.97);border-color:var(--ac)}
+ .mode:active{transform:scale(.98);border-color:var(--ac)}
+ .kb{display:none!important}
+}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(max-width:700px){
+ #app{gap:8px}
+ #game{gap:8px}
+ #grid{flex:1;min-height:0}
+ #grid .card{min-height:170px;height:100%}
+ #fq{flex:1}
+ #fq .big{flex:1;min-height:150px}
+ #opts{margin-top:auto}
+ #info{order:2;min-height:4.6em;font-size:12.5px}
+ #btns{order:3;margin-top:auto;position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);z-index:3}
+ #btns button{padding:18px 10px;font-size:18px;border-radius:18px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+ #opts button{min-height:54px}
+ #q{font-size:clamp(17px,5vw,22px);min-height:2.5em}
+ .ingame #th{display:none}
+ .stats{gap:6px}
+ .chip{padding:3px 9px;border-radius:12px}.chip b{font-size:16px}.chip small{font-size:8px}
+ .icon{width:38px;height:38px}
+ .hero{padding:14px 0 0;gap:12px}
+ .cta{width:100%;max-width:340px}
+ .modes{gap:10px}
+ .mode{display:grid;grid-template-columns:40px 1fr;column-gap:12px;row-gap:2px;padding:14px 16px;border-radius:18px}
+ .mode .ic{grid-row:1/4;align-self:center;font-size:28px}
+ .mode b{font-size:17px}.mode span{font-size:13px}
+ .mode .bt{margin-top:4px}
+ #ov{align-items:flex-end;padding:0}
+ .box{border-radius:28px 28px 0 0;margin:0;max-width:none;padding:24px 20px calc(env(safe-area-inset-bottom,0px) + 20px);animation:up .3s ease-out}
+ .box h3{font-size:26px}
+ .box button{padding:16px}
+}
+@media(max-width:700px) and (min-height:760px){
+ #grid .card .flagimg{height:84px}#grid .card .flag{font-size:76px}
+ #grid .nm{font-size:22px}#grid .val{font-size:34px}
+ #fq .big .flagimg{height:150px}
+}
+@media(max-width:380px){
+ .logo{font-size:17px}
+ header .chip small{display:none}header .chip{padding:7px 10px}#sc::before{content:"🔥 ";font-size:13px}#bs::before{content:"🏆 ";font-size:13px}
+ #grid .card{min-height:150px;padding:12px 6px}
+ .nm{font-size:16px}.val{font-size:22px}
+ #cat{font-size:11px;padding:5px 14px}
+}
+@media(max-height:560px) and (orientation:landscape){
+ #grid .card{min-height:0;padding:8px;gap:2px}
+ .flagimg{height:42px}.flag{font-size:40px}
+ #fq .big{min-height:0;padding:10px}#fq .big .flagimg{height:90px}
+ #q{min-height:0;font-size:17px}
+ .hero{padding:4px 0}.hero h1{font-size:30px}
+ #btns{position:static}
+}
 </style>
 </head>
 <body>
@@ -108,7 +183,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 <div class="stats"><div class="chip" data-g><small>Streak</small><b id="sc">0</b></div><div class="chip" data-g><small>Best</small><b id="bs">0</b></div><button class="icon" id="hm" data-g onclick="menu()" title="Home" aria-label="Back to home">🏠</button><button class="icon" id="th" onclick="cycleTheme()" title="Theme" aria-label="Toggle theme">🌓</button></div></header>
 <section id="home">
  <div class="hero">
-  <span class="pill" id="pill">🌍 195 countries · 3 game modes</span>
+  <span class="pill" id="pill">🌍 195 countries · 4 game modes</span>
   <h1>How well do you <em>really</em> know the world?</h1>
   <p>Guess which country is bigger, richer, older or more connected. One wrong answer and your streak is over.</p>
   <button class="pri cta" onclick="start('hl')">▶ Play now</button>
@@ -124,7 +199,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
  </div>
  <div class="lvls" id="lvls"></div>
  <p class="keys">Fun-fact numbers are rounded estimates from recent public sources.</p>
- <p class="keys">Keys: ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Esc home</p>
+ <p class="keys kb">Keys: ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Esc home</p>
  <div class="src" id="src"></div>
 </section>
 <div id="game" hidden>
@@ -248,7 +323,8 @@ function pick(cat,a){
  const c=pool(cat).filter(k=>k!==a&&cat.d[k]!==va).map(k=>({k,r:ratio(cat,va,cat.d[k])})).filter(x=>x.r>=1.02);
  if(!c.length)return Object.keys(cat.d).find(k=>k!==a&&cat.d[k]!==va);
  c.sort((x,y)=>Math.abs(Math.log(x.r/tg))-Math.abs(Math.log(y.r/tg)));return rnd(c.slice(0,3)).k}
-function card(c,v){const i=INFO[c];return`${flagHTML(c)}<div class="nm">${esc(nm(c))}</div>${i&&i.cap?`<div class="sub">🏛️ ${esc(i.cap)}</div>`:""}<div class="val ${v?"":"q"}">${v||"?"}</div>`}
+function card(c,v){const i=INFO[c];return`${flagHTML(c)}<div class="nm">${esc(nm(c))}</div>${i&&i.cap?`<div class="sub">🏛️ ${esc(i.cap)}</div>`:""}<div class="val ${v?"":"q"}">${v?splitV(v):"?"}</div>`}
+const splitV=v=>{const m=/^(\S+)\s(.+)$/.exec(v);return m?`${m[1]}<small>${m[2]}</small>`:v}
 function hud(){
  $("lv").textContent="LVL "+S.lv;$("ln").textContent=LN[S.lv];
  $("lb").style.width=(S.lv>=6?100:(S.score%5)*20)+"%";$("sc").textContent=S.score;$("bs").textContent=best(S.mode);
@@ -283,7 +359,7 @@ function flagRound(){
  S.a=t;S.opts=shuffle([t,...shuffle(cand).slice(0,3)]);
  $("cat").textContent="🚩 Flag Quiz";$("q").textContent="Which country does this flag belong to?";
  $("fqf").innerHTML=flagHTML(t);
- $("opts").innerHTML=S.opts.map((c,i)=>`<button onclick="ans(${i})"><small style="opacity:.5">${i+1}</small> ${esc(nm(c))}</button>`).join("");
+ $("opts").innerHTML=S.opts.map((c,i)=>`<button onclick="ans(${i})"><small class="kb" style="opacity:.5">${i+1} </small>${esc(nm(c))}</button>`).join("");
  S.lock=false;clock(Math.max(6,TM[S.lv]-4));
 }
 
@@ -296,7 +372,7 @@ function run(rem){
  S.end=Date.now()+rem;S.tm=setTimeout(()=>ans(null),rem);
  const upd=()=>{const f=(S.end-Date.now())/S.dur;t.className="bar"+(f<.2?" crit":f<.45?" warn":"")};upd();S.tick=setInterval(upd,250);
 }
-function stopClock(){clearTimeout(S.tm);clearInterval(S.tick)}
+function stopClock(){clearTimeout(S.tm);clearInterval(S.tick);const i=$("timer").firstElementChild;if(S.dur&&!S.onMenu){i.style.transition="none";i.style.width=Math.max(0,(S.end-Date.now())/S.dur*100)+"%"}}
 document.addEventListener("visibilitychange",()=>{
  if(S.lock)return;
  if(document.hidden){S.paused=Math.max(0,S.end-Date.now());stopClock();const i=$("timer").firstElementChild;i.style.transition="none";i.style.width=(S.paused/S.dur*100)+"%"}
@@ -327,7 +403,7 @@ function ansFlag(g){
  finish(ok,g===null);
 }
 function finish(ok,timeout){
- if(ok){S.score++;if(S.score>best(S.mode))setBest(S.mode,S.score);hud();
+ if(ok){S.score++;try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}if(S.score>best(S.mode))setBest(S.mode,S.score);hud();
   const nl=Math.min(6,Math.floor(S.score/5)+1);if(nl>S.lv)setTimeout(()=>toast("⚡ Level "+nl+": "+LN[nl]+"!"),500);
   setTimeout(()=>{if(!S.onMenu)round()},S.mode==="fq"?1500:2300)}
  else{$("app").classList.remove("shake");void $("app").offsetWidth;$("app").classList.add("shake");try{navigator.vibrate&&navigator.vibrate(120)}catch(e){}
@@ -340,23 +416,24 @@ function over(){
  $("ov").hidden=false;$("ov").innerHTML=`<div class="box"><div style="font-size:48px">${nb?"🏆":"💥"}</div><h3>${nb?"New Record!":"Game Over"}</h3><p>${MODES[S.mode]} · You reached <b>Level ${S.lv} · ${LN[S.lv]}</b></p>
 <div style="display:flex;justify-content:space-around"><div class="chip"><small>Streak</small><b>${S.score}</b></div><div class="chip"><small>Best</small><b>${best(S.mode)}</b></div></div>
 <button class="pri" id="again" onclick="start(S.mode)">Play again 🔄</button><button class="sec" onclick="share()">📤 Share score</button><button class="sec" onclick="menu()">🏠 Home</button>
-<p style="font-size:12px">Press Enter to play again</p></div>`;$("again").focus()}
+<p class="kb" style="font-size:12px">Press Enter to play again</p></div>`;$("again").focus()}
 function share(){const t=`🌍 GeoPulse (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
  if(navigator.share){navigator.share({text:t,url:location.href}).catch(()=>{});return}
  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
 const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],ff:["🍔","More McDonald's in France or the USA? Coffee, beer, Nobel Prizes, metal bands and more."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
-function showGame(on){$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
+function showGame(on){document.body.classList.toggle("ingame",on);$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
 function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}
 function menu(){S.lock=true;S.onMenu=true;stopClock();$("ov").hidden=true;showGame(false);
  $("modes").innerHTML=Object.keys(MODES).map(m=>`<button class="mode" onclick="start('${m}')"><span class="ic">${DESC[m][0]}</span><b>${MODES[m].replace(/^\S+\s/,"")}</b><span>${DESC[m][1]}</span><div class="bt">🏆 Best: ${best(m)}<i>Play ▶</i></div></button>`).join("");
  $("lvls").innerHTML=LN.slice(1).map((x,i)=>`<span>${i+1} ${x}</span>`).join("");
  if(!$("mq").childElementCount){const cs=shuffle([...CORE]);$("mq").innerHTML=[...cs,...cs].map(flagHTML).join("")}
  refreshMenu();window.scrollTo(0,0)}
-function refreshMenu(){$("src").innerHTML=srcLabel();$("pill").textContent=apiOK()?`🛰️ Live data from ${S.cnt} countries`:`🌍 ${S.src==="load"?"195":CORE.size} countries · 3 game modes`}
+function refreshMenu(){$("src").innerHTML=srcLabel();$("pill").textContent=apiOK()?`🛰️ Live data from ${S.cnt} countries`:`🌍 ${S.src==="load"?"195":CORE.size} countries · 4 game modes`}
 
 /* ---------- Theme ---------- */
 const THEMES=["auto","light","dark"],TI={auto:"🌓",light:"☀️",dark:"🌙"};
-function applyTheme(t){if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.dataset.theme=t;$("th").textContent=TI[t]}
+function applyTheme(t){if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.dataset.theme=t;$("th").textContent=TI[t];
+ document.querySelectorAll('meta[name="theme-color"]').forEach((m,i)=>m.content=t==="auto"?(i?"#0b1020":"#eef4fb"):(t==="dark"?"#0b1020":"#eef4fb"))}
 function cycleTheme(){const c=store.get("gp_theme")||"auto",nx=THEMES[(THEMES.indexOf(c)+1)%3];store.set("gp_theme",nx);applyTheme(nx);toast("Theme: "+nx)}
 
 /* ---------- Input ---------- */
@@ -370,6 +447,7 @@ document.addEventListener("keydown",e=>{
 
 applyTheme(store.get("gp_theme")||"auto");
 menu();loadData();
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>

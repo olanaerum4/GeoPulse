@@ -4,6 +4,7 @@ A fast geography game in a single HTML file. Compare countries on population, ar
 
 ## Modes
 - **⬆⬇ Higher or Lower**: is the next country's value higher or lower?
+- **🍔 Fun Facts**: more McDonald's in France or the USA? Coffee, beer, Nobel Prizes, metal bands and more.
 - **⚔️ This or That**: pick the country with the higher (or lower) value.
 - **🚩 Flag Quiz**: pick the right country for the flag, from four options.
 
@@ -16,6 +17,9 @@ The API key is set in the `RC` object at the top of the script in `index.html`. 
 
 ## Run
 Open `index.html` in a browser, or enable GitHub Pages (Settings → Pages → Deploy from branch `main`, root).
+
+## Mobile & app install
+The game is built mobile-first: answer buttons sit in the thumb zone, the layout respects iPhone notches, and it can be installed as an app (Share → Add to Home Screen on iPhone, or Install app on Android). A small service worker lets it open offline.
 
 ## Controls
 ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Enter play again · Esc menu
