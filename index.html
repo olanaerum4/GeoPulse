@@ -123,6 +123,7 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
   <div><b>3</b><span>Every 5 correct answers makes it harder</span></div>
  </div>
  <div class="lvls" id="lvls"></div>
+ <p class="keys">Fun-fact numbers are rounded estimates from recent public sources.</p>
  <p class="keys">Keys: ↑ ↓ Higher/Lower · ← → This or That · 1–4 Flag Quiz · Esc home</p>
  <div class="src" id="src"></div>
 </section>
@@ -172,8 +173,27 @@ const CATS=[
 {l:4,n:"🏙️ Population Density",lb:"population density",d:dens,f:v=>n(v)+" /km²",t:"Monaco and Singapore pack thousands of people into every square kilometre."},
 {l:4,n:"🕰️ Time Zones",lb:"number of time zones",d:tz,cnt:1,api:1,f:v=>v+(v===1?" zone":" zones"),t:"Thanks to its overseas territories, France covers 12 time zones, more than any other country."},
 {l:4,n:"🏭 CO₂ per Person",lb:"CO₂ emissions per person",d:P("QA:35,AE:20,SA:18,AU:15,US:14.3,CA:14,KR:11.6,RU:11.4,JP:8.5,DE:7.9,CN:8.4,IR:8.5,PL:7.8,NL:7.5,FI:7,GB:4.7,FR:4.4,IT:5.2,ES:5,SE:3.4,NO:7.5,DK:4.7,CH:4,TR:5.2,ZA:6.8,TH:3.7,MX:3.5,VN:3.9,ID:2.3,BR:2.2,IN:2,PH:1.3,EG:2.3,PK:1,BD:0.6,KE:0.4,NG:0.6,ET:0.15,NP:0.5,SG:7.7,NZ:6.5,GR:5,PT:3.8,IE:6.5"),f:v=>n(v)+" t/yr",t:"A person in Qatar emits more than 50× the CO₂ of one in Ethiopia."}];
+/* ---------- Fun facts (curated, rounded estimates from recent public figures) ---------- */
+const FUN=(l,n,lb,d,f,t,qh,ql,x)=>CATS.push(Object.assign({l,n,lb,d:P(d),f,t,qh,ql,fun:1},x||{}));
+const U=u=>v=>n(v)+u;
+FUN(1,"🍔 McDonald's","number of McDonald's restaurants","US:13500,CN:6800,JP:2980,FR:1560,CA:1500,GB:1450,DE:1400,BR:1150,AU:1050,PH:780,IT:720,ES:620,PL:560,IN:500,KR:410,MX:410,SA:400,ZA:350,ID:300,TR:270,NL:260,TH:240,AR:230,AE:200,SE:200,PT:200,CH:170,NZ:170,EG:140,SG:140,UA:110,IE:100,CL:100,DK:90,PK:80,NO:75,CO:70,QA:70,FI:60,PE:30,VN:30,GR:25",U(" restaurants"),"Japan has more McDonald's than the entire African continent. Iceland has had none since 2009.","Where are there MORE McDonald's restaurants?","Where are there FEWER McDonald's restaurants?");
+FUN(1,"☕ Starbucks","number of Starbucks stores","US:16500,CN:7600,KR:2000,JP:1900,CA:1450,GB:1150,MX:850,TR:700,ID:650,TH:500,PH:500,IN:450,SA:400,AE:250,FR:220,CL:180,ES:170,DE:160,SG:150,AR:150,BR:130,PE:120,VN:120,NL:100,PL:90,IE:90,QA:80,CH:70,AU:60,CO:60,EG:60,GR:50,IT:40,NO:30,NZ:30,DK:25,PT:20,FI:20,SE:15",U(" stores"),"Starbucks closed most of its Australian stores in 2008: Aussies preferred their own café culture.","Where are there MORE Starbucks stores?","Where are there FEWER Starbucks stores?");
+FUN(1,"☕ Coffee Addicts","coffee consumption per person","FI:12,NO:9.9,IS:9,DK:8.7,NL:8.4,SE:8.2,CH:7.9,CA:6.5,DE:6.5,BR:6.1,IT:5.9,FR:5.4,GR:5.4,PT:4.8,ES:4.5,US:4.4,AU:3.8,JP:3.6,NZ:3.6,PL:3,GB:2.8,KR:2.5,ET:2.3,SA:2.2,VN:2.2,CO:2,RU:1.8,MX:1.5,ID:1.2,TR:1,AR:1,PH:0.6,ZA:0.6,CN:0.1,IN:0.1",U(" kg/yr"),"Finns drink more coffee than anyone else: about 12 kg of beans per person a year.","Who drinks MORE coffee per person?","Who drinks LESS coffee per person?");
+FUN(2,"🍺 Beer Lovers","beer consumption per person","PL:98,DE:92,IE:78,ES:78,RU:72,US:72,FI:70,NL:70,AU:70,GB:68,MX:68,BR:66,NZ:63,CA:60,DK:60,ZA:58,IS:58,PT:56,CH:55,SE:50,NO:48,CO:48,PE:45,CL:45,AR:44,VN:43,KR:40,GR:38,JP:37,IT:35,FR:33,CN:30,TH:30,PH:20,IN:2,ID:1",U(" L/yr"),"The real champion isn't in this game: Czechs drink around 140 litres of beer each per year.","Who drinks MORE beer per person?","Who drinks LESS beer per person?");
+FUN(1,"🍫 Chocolate","chocolate eaten per person","CH:11,DE:11,NO:9,GB:8,IE:8,DK:8,SE:7,FI:7,FR:7,NL:5,US:5,AU:5,PL:5,CA:5,NZ:5,RU:4.5,IT:4,ES:3.5,BR:2.5,JP:2,KR:1.5,MX:0.8,CN:0.1,IN:0.1",U(" kg/yr"),"The Swiss and Germans each eat about 11 kg of chocolate a year, roughly two bars a week.","Who eats MORE chocolate per person?","Who eats LESS chocolate per person?");
+FUN(2,"🍵 Tea Time","tea consumption per person","TR:3.2,IE:2.2,GB:1.9,IR:1.5,RU:1.4,EG:1,PK:1,JP:1,PL:1,SA:0.9,IN:0.8,NL:0.8,DE:0.7,CN:0.6,AU:0.6,NZ:0.6,CA:0.5,US:0.4,KE:0.4,FR:0.2,IT:0.1,BR:0.1,ES:0.1",U(" kg/yr"),"Not Britain: Türkiye drinks the most tea per person on Earth, about 3 kg each a year.","Who drinks MORE tea per person?","Who drinks LESS tea per person?");
+FUN(2,"🏅 Nobel Prizes","number of Nobel laureates","US:420,GB:140,DE:115,FR:75,SE:34,RU:32,JP:30,CH:30,CA:28,NL:22,IT:21,PL:18,AU:15,DK:14,NO:13,IN:12,CN:10,ZA:11,IE:11,ES:8,FI:5,AR:5,EG:4,PK:3,MX:3,NZ:3,GR:2,PT:2,KR:2,CL:2,CO:2,TR:2,IR:2,IS:1,PE:1,BD:1,NG:1,KE:1,ET:1",U(" laureates"),"The US has more Nobel laureates than the next five countries combined.","Which country has MORE Nobel Prize winners?","Which country has FEWER Nobel Prize winners?",{cnt:1});
+FUN(2,"⛷️ Winter Olympics","Winter Olympic gold medals","NO:148,US:113,DE:105,CA:77,SE:65,CH:63,NL:53,FI:45,IT:42,FR:41,KR:33,CN:22,JP:17,GB:13,PL:7,AU:6,UA:3,NZ:2,ES:1",U(" golds"),"Norway, with 5.5 million people, has won more Winter Olympic golds than any other nation.","Who has won MORE Winter Olympic golds?","Who has won FEWER Winter Olympic golds?",{cnt:1});
+FUN(1,"🏝️ Islands","number of islands","SE:267570,NO:239057,FI:178947,CA:52455,US:18617,ID:17504,JP:14125,AU:8222,PH:7641,GB:6289,GR:6000,DK:1419",U(" islands"),"Sweden has the most islands in the world: over 267,000, though only about 1,000 are inhabited.","Which country has MORE islands?","Which country has FEWER islands?");
+FUN(3,"📏 Tall People","average height of men","NL:183,DK:181,IS:181,NO:180,SE:180,DE:180,FI:180,AU:179,CH:178,GB:178,CA:178,PL:178,US:177,IT:177,FR:176,ES:176,TR:176,KR:175,CN:175,AR:175,IR:174,BR:173,CL:173,SA:172,JP:171,CO:171,MX:170,EG:170,VN:168,NG:168,ET:168,ZA:168,PE:167,IN:166,ID:166,BD:165,PH:165",v=>v+" cm","Dutch men are the tallest in the world, averaging over 1.83 m.","Where are men TALLER on average?","Where are men SHORTER on average?",{cmp:(h,l,d)=>`Men in <b>${h}</b> are on average <b>${d} cm taller</b> than in ${l}`});
+FUN(2,"🏛️ World Heritage","number of UNESCO World Heritage Sites","IT:60,CN:59,DE:54,FR:53,ES:50,IN:43,MX:35,GB:35,RU:31,IR:28,JP:26,US:26,BR:24,CA:22,AU:21,TR:21,GR:19,PL:17,PT:17,KR:16,SE:15,CH:13,NL:13,PE:13,AR:12,DK:11,ET:11,ZA:10,ID:10,CO:9,NO:8,SA:8,VN:8,UA:8,EG:7,FI:7,TH:7,CL:7,KE:7,PH:6,PK:6,NP:4,NZ:3,IS:3,BD:3,IE:2,NG:2,SG:1,AE:1,QA:1",U(" sites"),"Italy has the most UNESCO World Heritage Sites of any country.","Which country has MORE UNESCO World Heritage Sites?","Which country has FEWER UNESCO World Heritage Sites?",{cnt:1});
+FUN(3,"💎 Billionaires","number of billionaires","US:810,CN:400,IN:200,DE:130,RU:120,IT:73,BR:69,CA:67,GB:55,AU:45,FR:43,SE:43,CH:41,JP:40,SG:35,KR:30,ES:30,TR:30,TH:30,ID:25,MX:18,PH:17,NO:15,SA:15,AE:15,PL:12,NL:12,DK:10,CL:7,AR:7,NZ:3",U(" billionaires"),"Sweden has more billionaires per person than the United States.","Which country has MORE billionaires?","Which country has FEWER billionaires?");
+FUN(1,"✈️ Tourists","foreign tourist arrivals per year","FR:100,ES:85,US:66,IT:57,TR:55,MX:42,GB:38,DE:35,CN:35,GR:33,TH:28,SA:27,JP:25,NL:20,PL:19,PT:18,CA:18,AE:17,EG:15,SG:14,VN:12,ID:12,CH:11,KR:11,IN:9,ZA:8,IE:8,AU:7,AR:7,NO:6,BR:6,PH:5,QA:4,NZ:3,FI:3,IS:2.2",U(" M visitors"),"France is the most visited country on Earth, with about 100 million foreign visitors a year.","Which country gets MORE tourists?","Which country gets FEWER tourists?");
+FUN(2,"🤘 Heavy Metal","heavy metal bands per 100,000 people","FI:63,SE:42,NO:34,IS:30,DK:25,DE:18,CH:15,NL:14,GR:13,CA:11,AU:10,PL:10,US:9,GB:9,IT:9,PT:9,FR:8,ES:7,CL:7,BR:3,RU:2.5,JP:2,MX:2",U(" bands"),"Finland has the most metal bands per person on the planet. Its Eurovision winners Lordi were a metal band.","Where are there MORE metal bands per person?","Where are there FEWER metal bands per person?");
+FUN(3,"🍕 Pizza & Pasta","pasta eaten per person","IT:23,GR:11,CH:9,SE:9,US:9,CL:9,PE:8,FR:8,DE:8,AR:8,RU:7,PT:7,ES:5,CA:7,BR:5,NL:4,GB:3,MX:3,JP:2,CN:0.5",U(" kg/yr"),"Italians eat about 23 kg of pasta each per year, roughly a plate every day.","Who eats MORE pasta per person?","Who eats LESS pasta per person?");
+for(const c of CATS)if(c.fun)for(const x in c.d)if(!(c.d[x]>0))delete c.d[x];
 const LV=[0,4,2.6,1.7,1.3,1.15,1.07],TM=[0,18,16,14,12,10,8],LN=["","Rookie","Explorer","Navigator","Cartographer","Geo Master","Legend"];
-const MODES={hl:"⬆⬇ Higher or Lower",tt:"⚔️ This or That",fq:"🚩 Flag Quiz"};
+const MODES={hl:"⬆⬇ Higher or Lower",ff:"🍔 Fun Facts",tt:"⚔️ This or That",fq:"🚩 Flag Quiz"};
 const S={mode:"hl",score:0,lv:1,lock:true,tm:null,end:0,dur:0,paused:null,cat:null,a:null,b:null,dir:"hi",opts:[],ans:null,src:"load",onMenu:true,toastT:null};
 const $=id=>document.getElementById(id);
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
@@ -240,14 +260,14 @@ function round(){
  S.lv=Math.min(6,Math.floor(S.score/5)+1);S.onMenu=false;
  layout(S.mode);$("info").innerHTML="";hud();
  if(S.mode==="fq")return flagRound();
- const av=CATS.filter(c=>c.l<=S.lv&&(!c.api||apiOK())&&Object.keys(c.d).length>8);
+ const ff=S.mode==="ff",av=ff?CATS.filter(c=>c.fun):CATS.filter(c=>c.l<=S.lv&&(!c.api||apiOK())&&Object.keys(c.d).length>8);
  let cat=rnd(av);if(cat===S.cat&&Math.random()<.6)cat=rnd(av);
  const keep=S.mode==="hl"&&S.b&&cat.d[S.b]!==undefined&&(wide()||CORE.has(S.b));
  S.cat=cat;S.a=keep?S.b:rnd(pool(cat));S.b=pick(cat,S.a);
- S.dir=S.mode==="tt"&&S.lv>=3&&Math.random()<.4?"lo":"hi";
+ S.dir=((S.mode==="tt"&&S.lv>=3)||(ff&&S.lv>=2))&&Math.random()<.4?"lo":"hi";
  const hl=S.mode==="hl",A=$("cA"),B=$("cB");
  $("cat").textContent=cat.n;
- $("q").innerHTML="<span>"+(hl?`Is <u>${esc(nm(S.b))}</u>'s ${cat.lb} higher or lower than <u>${esc(nm(S.a))}</u>'s?`:`Which has the <u>${S.dir==="hi"?"HIGHER":"LOWER"}</u> ${cat.lb}?`)+"</span>";
+ $("q").innerHTML="<span>"+(hl?`Is <u>${esc(nm(S.b))}</u>'s ${cat.lb} higher or lower than <u>${esc(nm(S.a))}</u>'s?`:ff?(S.dir==="hi"?cat.qh:cat.ql).replace(/\b(MORE|FEWER|LESS|TALLER|SHORTER)\b/,"<u>$1</u>"):`Which has the <u>${S.dir==="hi"?"HIGHER":"LOWER"}</u> ${cat.lb}?`)+"</span>";
  A.className="card"+(hl?"":" click");B.className="card"+(hl?"":" click");
  A.innerHTML=card(S.a,hl?cat.f(cat.d[S.a]):"");B.innerHTML=card(S.b,"");
  A.onclick=hl?null:()=>ans("a");B.onclick=hl?null:()=>ans("b");
@@ -292,11 +312,11 @@ function ans(g){
  if(S.mode==="hl")ok=g!==null&&(g==="h")===(vb>va);else ok=g===win;
  $("cA").innerHTML=card(S.a,cat.f(va));$("cB").innerHTML=card(S.b,cat.f(vb));
  $("cA").classList.remove("click");$("cB").classList.remove("click");
- if(S.mode==="tt"){$("c"+win.toUpperCase()).classList.add("win");$("c"+(win==="a"?"B":"A")).classList.add("lose")}
+ if(S.mode!=="hl"){$("c"+win.toUpperCase()).classList.add("win");$("c"+(win==="a"?"B":"A")).classList.add("lose")}
  else $("cB").classList.add(ok?"win":"lose");
  const hi=vb>va?S.b:S.a,lw=vb>va?S.a:S.b,mx=Math.max(va,vb),mn=Math.min(va,vb);
- const cmp=cat.cnt||mn===0?`<b>${mx-mn}</b> more than ${esc(nm(lw))}`:(()=>{const r=mx/mn;return`<b>${r.toFixed(r<2?2:1)}×</b> the ${cat.lb} of ${esc(nm(lw))}`})();
- $("info").innerHTML=`${g===null?"⏰ Time's up! ":""}<b>${esc(nm(hi))}</b> has ${cmp}.<br>💡 ${cat.t}`;
+ const cmp=cat.cnt||mn===0?`<b>${mx-mn} more</b> than ${esc(nm(lw))} (${cat.f(mx)} vs ${cat.f(mn)})`:(()=>{const r=mx/mn;return`<b>${r.toFixed(r<2?2:1)}×</b> the ${cat.lb} of ${esc(nm(lw))}`})();
+ $("info").innerHTML=`${g===null?"⏰ Time's up! ":""}${cat.cmp?cat.cmp(esc(nm(hi)),esc(nm(lw)),mx-mn):`<b>${esc(nm(hi))}</b> has ${cmp}`}.<br>💡 ${cat.t}`;
  finish(ok,g===null);
 }
 function ansFlag(g){
@@ -324,7 +344,7 @@ function over(){
 function share(){const t=`🌍 GeoPulse (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
  if(navigator.share){navigator.share({text:t,url:location.href}).catch(()=>{});return}
  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
-const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
+const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],ff:["🍔","More McDonald's in France or the USA? Coffee, beer, Nobel Prizes, metal bands and more."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
 function showGame(on){$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
 function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}
 function menu(){S.lock=true;S.onMenu=true;stopClock();$("ov").hidden=true;showGame(false);
@@ -345,7 +365,7 @@ document.addEventListener("keydown",e=>{
  if(e.key==="Enter"&&!$("ov").hidden&&!S.onMenu){e.preventDefault();start(S.mode);return}
  if(S.mode==="fq"){const d=+e.key;if(d>=1&&d<=4){ans(d-1)}return}
  const m={ArrowUp:"h",ArrowDown:"l",ArrowLeft:"a",ArrowRight:"b"}[e.key];
- if(m&&((S.mode==="hl"&&"hl".includes(m))||(S.mode==="tt"&&"ab".includes(m)))){e.preventDefault();ans(m)}
+ if(m&&((S.mode==="hl"&&"hl".includes(m))||((S.mode==="tt"||S.mode==="ff")&&"ab".includes(m)))){e.preventDefault();ans(m)}
 });
 
 applyTheme(store.get("gp_theme")||"auto");
