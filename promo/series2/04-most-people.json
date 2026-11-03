@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Most people 👥",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">most people</span>",
+  "sub": "#1 changed recently 👀"
+ },
+ "items": [
+  {
+   "f": "🇮🇳",
+   "n": "India",
+   "v": 1450
+  },
+  {
+   "f": "🇨🇳",
+   "n": "China",
+   "v": 1410
+  },
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 340
+  },
+  {
+   "f": "🇮🇩",
+   "n": "Indonesia",
+   "v": 283
+  },
+  {
+   "f": "🇵🇰",
+   "n": "Pakistan",
+   "v": 251
+  }
+ ],
+ "unit": "million",
+ "dec": 0,
+ "fact": "India passed China in <b>2023</b> to become #1.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Coffee per person ☕",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries that drink the <span class=\"grad\">most coffee</span>",
+  "sub": "It's not Italy ☕😳"
+ },
+ "items": [
+  {
+   "f": "🇫🇮",
+   "n": "Finland",
+   "v": 12
+  },
+  {
+   "f": "🇳🇴",
+   "n": "Norway",
+   "v": 9.9
+  },
+  {
+   "f": "🇮🇸",
+   "n": "Iceland",
+   "v": 9
+  },
+  {
+   "f": "🇩🇰",
+   "n": "Denmark",
+   "v": 8.7
+  },
+  {
+   "f": "🇳🇱",
+   "n": "Netherlands",
+   "v": 8.4
+  }
+ ],
+ "unit": "kg/yr",
+ "dec": 1,
+ "fact": "That's about <b>4 cups a day</b> for every Finn.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

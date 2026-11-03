@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Most Starbucks ☕",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">most Starbucks</span>",
+  "sub": "#3 makes no sense 🤯"
+ },
+ "items": [
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 16500
+  },
+  {
+   "f": "🇨🇳",
+   "n": "China",
+   "v": 7600
+  },
+  {
+   "f": "🇰🇷",
+   "n": "South Korea",
+   "v": 2000
+  },
+  {
+   "f": "🇯🇵",
+   "n": "Japan",
+   "v": 1900
+  },
+  {
+   "f": "🇨🇦",
+   "n": "Canada",
+   "v": 1450
+  }
+ ],
+ "unit": "stores",
+ "dec": 0,
+ "fact": "The US has more Starbucks than the <b>next 4 countries combined</b>.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

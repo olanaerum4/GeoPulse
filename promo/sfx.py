@@ -22,9 +22,31 @@ def whoosh():
     k = np.ones(40) / 40; noise = np.convolve(noise, k, "same")  # low-pass
     shape = np.sin(np.pi * t / t[-1]) ** 2
     return .9 * noise * shape
-FX = {"tick": tick(), "ding": ding(), "whoosh": whoosh()}
+def kick():
+    n = int(.35 * SR); t = np.arange(n) / SR
+    f = 50 + 110 * np.exp(-t * 28)                      # pitch drop 160 -> 50 Hz
+    return 1.0 * np.sin(2 * np.pi * np.cumsum(f) / SR) * env(n, .001, 9)
+def hat():
+    n = int(.05 * SR)
+    x = np.random.default_rng(7).standard_normal(n); x = x - np.convolve(x, np.ones(6) / 6, "same")  # high-pass
+    return .35 * x * env(n, .0005, 70)
+def riser():
+    n = int(1.0 * SR); t = np.arange(n) / SR
+    x = np.random.default_rng(3).standard_normal(n)
+    out = np.zeros(n); w = 60
+    for i in range(0, n, 2205):                          # opening filter: less smoothing over time
+        k = max(2, int(w * (1 - i / n)))
+        seg = x[i:i + 2205]; out[i:i + 2205] = np.convolve(seg, np.ones(k) / k, "same")
+    tone = np.sin(2 * np.pi * np.cumsum(200 + 900 * t ** 2) / SR) * .25
+    return (out * 2.5 + tone) * (t / t[-1]) ** 2 * .7
+def hit():
+    k = kick(); n = int(.9 * SR)
+    x = np.random.default_rng(5).standard_normal(n) * env(n, .001, 5) * .45
+    out = x.copy(); out[:len(k)] += k * 1.2
+    return out
+FX = {"tick": tick(), "ding": ding(), "whoosh": whoosh(), "kick": kick(), "hat": hat(), "riser": riser(), "hit": hit()}
 for e in evs:
-    s = FX[e["s"]]; i = int(e["t"] * SR)
+    s = FX[e["s"]] * e.get("v", 1.0); i = int(e["t"] * SR)
     track[i:i + len(s)] += s[:len(track) - i]
 track = track[:int(SR * dur)]
 track = np.clip(track / max(1e-9, np.abs(track).max()) * .8, -1, 1)

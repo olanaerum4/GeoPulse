@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Most visited 🧳",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "The <span class=\"grad\">most visited</span> countries",
+  "sub": "#1 gets 100 million tourists 😳"
+ },
+ "items": [
+  {
+   "f": "🇫🇷",
+   "n": "France",
+   "v": 100
+  },
+  {
+   "f": "🇪🇸",
+   "n": "Spain",
+   "v": 85
+  },
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 66
+  },
+  {
+   "f": "🇮🇹",
+   "n": "Italy",
+   "v": 57
+  },
+  {
+   "f": "🇹🇷",
+   "n": "Türkiye",
+   "v": 55
+  }
+ ],
+ "unit": "M visitors",
+ "dec": 0,
+ "fact": "France gets <b>more tourists than it has people</b>.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

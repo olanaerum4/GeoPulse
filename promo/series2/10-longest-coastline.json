@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Longest coastline 🌊",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">longest coastline</span>",
+  "sub": "#1 is absolutely massive 🌊"
+ },
+ "items": [
+  {
+   "f": "🇨🇦",
+   "n": "Canada",
+   "v": 202080
+  },
+  {
+   "f": "🇮🇩",
+   "n": "Indonesia",
+   "v": 54716
+  },
+  {
+   "f": "🇷🇺",
+   "n": "Russia",
+   "v": 37653
+  },
+  {
+   "f": "🇵🇭",
+   "n": "Philippines",
+   "v": 36289
+  },
+  {
+   "f": "🇯🇵",
+   "n": "Japan",
+   "v": 29751
+  }
+ ],
+ "unit": "km",
+ "dec": 0,
+ "fact": "Canada's coast could wrap around Earth <b>5 times</b>.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

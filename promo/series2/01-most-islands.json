@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Most islands 🏝️",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">most islands</span>",
+  "sub": "#1 is NOT who you think 😳"
+ },
+ "items": [
+  {
+   "f": "🇸🇪",
+   "n": "Sweden",
+   "v": 267570
+  },
+  {
+   "f": "🇳🇴",
+   "n": "Norway",
+   "v": 239057
+  },
+  {
+   "f": "🇫🇮",
+   "n": "Finland",
+   "v": 178947
+  },
+  {
+   "f": "🇨🇦",
+   "n": "Canada",
+   "v": 52455
+  },
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 18617
+  }
+ ],
+ "unit": "",
+ "dec": 0,
+ "fact": "Only about <b>1,000</b> of Sweden's islands are inhabited.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Tea per person 🍵",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries that drink the <span class=\"grad\">most tea</span>",
+  "sub": "Sorry, Britain 🇬🇧😂"
+ },
+ "items": [
+  {
+   "f": "🇹🇷",
+   "n": "Türkiye",
+   "v": 3.2
+  },
+  {
+   "f": "🇮🇪",
+   "n": "Ireland",
+   "v": 2.2
+  },
+  {
+   "f": "🇬🇧",
+   "n": "UK",
+   "v": 1.9
+  },
+  {
+   "f": "🇮🇷",
+   "n": "Iran",
+   "v": 1.5
+  },
+  {
+   "f": "🇷🇺",
+   "n": "Russia",
+   "v": 1.4
+  }
+ ],
+ "unit": "kg/yr",
+ "dec": 1,
+ "fact": "Many Turks drink tea <b>all day long</b> from small tulip glasses.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

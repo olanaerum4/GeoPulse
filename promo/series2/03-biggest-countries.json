@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Biggest countries 🗺️",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "The <span class=\"grad\">5 biggest</span> countries on Earth",
+  "sub": "Most people get #3 wrong 😬"
+ },
+ "items": [
+  {
+   "f": "🇷🇺",
+   "n": "Russia",
+   "v": 17.1
+  },
+  {
+   "f": "🇨🇦",
+   "n": "Canada",
+   "v": 9.98
+  },
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 9.83
+  },
+  {
+   "f": "🇨🇳",
+   "n": "China",
+   "v": 9.6
+  },
+  {
+   "f": "🇧🇷",
+   "n": "Brazil",
+   "v": 8.52
+  }
+ ],
+ "unit": "M km²",
+ "dec": 2,
+ "fact": "Russia is <b>bigger than Pluto's surface area</b>.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

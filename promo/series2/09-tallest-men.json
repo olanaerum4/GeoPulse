@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Tallest men 📏",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">tallest men</span>",
+  "sub": "#2 is a country you've never thought about 👀"
+ },
+ "items": [
+  {
+   "f": "🇳🇱",
+   "n": "Netherlands",
+   "v": 183.8
+  },
+  {
+   "f": "🇲🇪",
+   "n": "Montenegro",
+   "v": 183.3
+  },
+  {
+   "f": "🇪🇪",
+   "n": "Estonia",
+   "v": 182.8
+  },
+  {
+   "f": "🇧🇦",
+   "n": "Bosnia",
+   "v": 182.5
+  },
+  {
+   "f": "🇮🇸",
+   "n": "Iceland",
+   "v": 182.1
+  }
+ ],
+ "unit": "cm",
+ "dec": 1,
+ "fact": "Dutch men grew <b>about 20 cm</b> taller in 150 years.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "template": "top5.html",
+ "head": "Most time zones 🕰️",
+ "hook": {
+  "tag": "TOP 5",
+  "title": "Countries with the <span class=\"grad\">most time zones</span>",
+  "sub": "It's not Russia 👀"
+ },
+ "items": [
+  {
+   "f": "🇫🇷",
+   "n": "France",
+   "v": 12
+  },
+  {
+   "f": "🇷🇺",
+   "n": "Russia",
+   "v": 11
+  },
+  {
+   "f": "🇺🇸",
+   "n": "USA",
+   "v": 11
+  },
+  {
+   "f": "🇬🇧",
+   "n": "UK",
+   "v": 9
+  },
+  {
+   "f": "🇦🇺",
+   "n": "Australia",
+   "v": 9
+  }
+ ],
+ "unit": "zones",
+ "dec": 0,
+ "fact": "France's <b>overseas territories</b> span the whole planet.",
+ "outro": {
+  "title": "Did you guess #1? 👇",
+  "cta": "Play free · geowawe.org"
+ }
+}
