@@ -1,6 +1,6 @@
 // GeoWawe service worker: network-first for the app, so updates show up
 // immediately when online and the game still opens offline.
-const CACHE = "geowawe-v2";
+const CACHE = "geowawe-v3";
 const CORE = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 
 self.addEventListener("install", e => {

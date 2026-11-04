@@ -179,6 +179,8 @@ button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
  #btns{position:static}
 }
 </style>
+<!-- Cookieless, privacy-friendly stats (GoatCounter). Dashboard: https://geowawe.goatcounter.com -->
+<script data-goatcounter="https://geowawe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div id="app">
@@ -274,6 +276,8 @@ const LV=[0,4,2.6,1.7,1.3,1.15,1.07],TM=[0,18,16,14,12,10,8],LN=["","Rookie","Ex
 const MODES={hl:"⬆⬇ Higher or Lower",ff:"🍔 Fun Facts",tt:"⚔️ This or That",fq:"🚩 Flag Quiz"};
 const S={mode:"hl",score:0,lv:1,lock:true,tm:null,end:0,dur:0,paused:null,cat:null,a:null,b:null,dir:"hi",opts:[],ans:null,src:"load",onMenu:true,toastT:null};
 const $=id=>document.getElementById(id);
+/* Stats: GoatCounter events (no cookies, no personal data). Silently does nothing if blocked. */
+function track(path,title){try{const g=window.goatcounter;if(g&&g.count)g.count({path,title:title||path,event:true})}catch(e){}}
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 const best=m=>+store.get("gp2_"+m)||0;
 const setBest=(m,v)=>store.set("gp2_"+m,v);
@@ -308,7 +312,7 @@ async function loadData(){
  try{
   const d=await fetchRC();S.cnt=applyData(d);S.src="live";
   store.set(RC.cacheKey,JSON.stringify({t:Date.now(),d}));
- }catch(e){console.warn("REST Countries unavailable, using built-in data",e);S.src="off"}
+ }catch(e){console.warn("REST Countries unavailable, using built-in data",e);S.src="off";track("data/offline","Countries API failed")}
  refreshMenu();
 }
 const apiOK=()=>S.src==="live";
@@ -407,25 +411,25 @@ function ansFlag(g){
 }
 function finish(ok,timeout){
  if(ok){S.score++;try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}if(S.score>best(S.mode))setBest(S.mode,S.score);hud();
-  const nl=Math.min(6,Math.floor(S.score/5)+1);if(nl>S.lv)setTimeout(()=>toast("⚡ Level "+nl+": "+LN[nl]+"!"),500);
+  const nl=Math.min(6,Math.floor(S.score/5)+1);if(nl>S.lv){track("level/"+nl,"Reached level "+nl)}if(nl>S.lv)setTimeout(()=>toast("⚡ Level "+nl+": "+LN[nl]+"!"),500);
   setTimeout(()=>{if(!S.onMenu)round()},S.mode==="fq"?1500:2300)}
  else{$("app").classList.remove("shake");void $("app").offsetWidth;$("app").classList.add("shake");try{navigator.vibrate&&navigator.vibrate(120)}catch(e){}
   setTimeout(()=>{if(!S.onMenu)over()},timeout?1300:1800)}
 }
 
 /* ---------- Screens ---------- */
-function over(){
+function over(){const sc=S.score,bk=sc===0?"0":sc<5?"1-4":sc<10?"5-9":sc<20?"10-19":"20+";track(`gameover/${S.mode}/${bk}`,`Game over ${MODES[S.mode]}: ${bk}`);
  const nb=S.score>0&&S.score>=best(S.mode);
  $("ov").hidden=false;$("ov").innerHTML=`<div class="box"><div style="font-size:48px">${nb?"🏆":"💥"}</div><h3>${nb?"New Record!":"Game Over"}</h3><p>${MODES[S.mode]} · You reached <b>Level ${S.lv} · ${LN[S.lv]}</b></p>
 <div style="display:flex;justify-content:space-around"><div class="chip"><small>Streak</small><b>${S.score}</b></div><div class="chip"><small>Best</small><b>${best(S.mode)}</b></div></div>
 <button class="pri" id="again" onclick="start(S.mode)">Play again 🔄</button><button class="sec" onclick="share()">📤 Share score</button><button class="sec" onclick="menu()">🏠 Home</button>
 <p class="kb" style="font-size:12px">Press Enter to play again</p></div>`;$("again").focus()}
-function share(){const t=`🌍 GeoWawe (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
+function share(){track("share/"+S.mode,"Share: "+MODES[S.mode]);const t=`🌍 GeoWawe (${MODES[S.mode]}): I hit a streak of ${S.score} and reached Level ${S.lv} (${LN[S.lv]})! Can you beat me?`;
  if(navigator.share){navigator.share({text:t,url:location.href}).catch(()=>{});return}
  (navigator.clipboard?navigator.clipboard.writeText(location.protocol.startsWith("http")?t+" "+location.origin:t):Promise.reject()).then(()=>toast("Copied! 🚀")).catch(()=>toast("Copy not available here"))}
 const DESC={hl:["⬆⬇","Is the next country higher or lower? Keep the chain going."],ff:["🍔","More McDonald's in France or the USA? Coffee, beer, Nobel Prizes, metal bands and more."],tt:["⚔️","Two countries, one question. Tap the winner."],fq:["🚩","One flag, four countries. How many can you name?"]};
 function showGame(on){document.body.classList.toggle("ingame",on);$("home").hidden=on;$("game").hidden=!on;document.querySelectorAll("[data-g]").forEach(e=>e.hidden=!on)}
-function start(m){S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}
+function start(m){track("start/"+m,"Start: "+MODES[m]);S.mode=m;S.score=0;S.lv=1;S.b=null;S.cat=null;$("ov").hidden=true;showGame(true);window.scrollTo(0,0);round()}
 function menu(){S.lock=true;S.onMenu=true;stopClock();$("ov").hidden=true;showGame(false);
  $("modes").innerHTML=Object.keys(MODES).map(m=>`<button class="mode" onclick="start('${m}')"><span class="ic">${DESC[m][0]}</span><b>${MODES[m].replace(/^\S+\s/,"")}</b><span>${DESC[m][1]}</span><div class="bt">🏆 Best: ${best(m)}<i>Play ▶</i></div></button>`).join("");
  $("lvls").innerHTML=LN.slice(1).map((x,i)=>`<span>${i+1} ${x}</span>`).join("");
