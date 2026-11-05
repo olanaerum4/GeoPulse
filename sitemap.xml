@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://geowawe.org/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://geowawe.org/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/how-to-play/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/about/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/privacy/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-with-the-most-islands/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-with-the-most-time-zones/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/largest-countries-by-area/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/most-populous-countries/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-that-drink-the-most-coffee/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-that-drink-the-most-tea/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/most-visited-countries/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-with-the-tallest-men/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-with-the-longest-coastline/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://geowawe.org/facts/countries-with-the-most-starbucks/</loc><lastmod>2026-11-05</lastmod></url>
 </urlset>
