@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🌋 ISLANDS & VOLCANOES",
+  "title": "Only <span class=\"grad\">real</span> geography fans get this",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> islands?",
+   "a": {
+    "f": "🇵🇭",
+    "n": "Philippines",
+    "v": 7641
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 14125
+   },
+   "unit": "islands",
+   "dec": 0,
+   "fact": "A 2023 recount <b>doubled</b> Japan's official number of islands."
+  },
+  {
+   "q": "Which has <u>MORE</u> active volcanoes?",
+   "a": {
+    "f": "🇮🇩",
+    "n": "Indonesia",
+    "v": 127
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 111
+   },
+   "unit": "volcanoes",
+   "dec": 0,
+   "fact": "Indonesia sits on the <b>Ring of Fire</b>, with around 127 active volcanoes."
+  },
+  {
+   "q": "Which country has <u>MORE</u> islands?",
+   "a": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 14125
+   },
+   "b": {
+    "f": "🇫🇮",
+    "n": "Finland",
+    "v": 178947
+   },
+   "unit": "islands",
+   "dec": 0,
+   "fact": "Many of Finland's islands are <b>inside its lakes</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

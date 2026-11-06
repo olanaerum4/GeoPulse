@@ -1,0 +1,63 @@
+{
+ "hook": {
+  "tag": "📐 SIZE QUIZ",
+  "title": "<span class=\"grad\">#2</span> is a trick question 👀",
+  "teaseQ": 1,
+  "teaseText": "Watch out for #2…"
+ },
+ "questions": [
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 378
+   },
+   "b": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 357
+   },
+   "unit": "k km²",
+   "dec": 0,
+   "fact": "Japan is bigger than Germany. Maps make it look <b>much smaller</b>."
+  },
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇰🇿",
+    "n": "Kazakhstan",
+    "v": 2.72
+   },
+   "b": {
+    "f": "🇦🇷",
+    "n": "Argentina",
+    "v": 2.78
+   },
+   "unit": "M km²",
+   "dec": 2,
+   "fact": "So close! Kazakhstan is still the <b>largest landlocked country</b>."
+  },
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇩🇿",
+    "n": "Algeria",
+    "v": 2.38
+   },
+   "b": {
+    "f": "🇨🇩",
+    "n": "DR Congo",
+    "v": 2.34
+   },
+   "unit": "M km²",
+   "dec": 2,
+   "fact": "Algeria is the <b>largest country in Africa</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

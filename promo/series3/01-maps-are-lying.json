@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🗺️ MAPS LIE",
+  "title": "Your map is <span class=\"grad\">lying</span> to you",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which city is further <u>NORTH</u>?",
+   "a": {
+    "f": "🇫🇷",
+    "n": "Paris",
+    "v": 48.9
+   },
+   "b": {
+    "f": "🇺🇸",
+    "n": "Seattle",
+    "v": 47.6
+   },
+   "unit": "°N",
+   "dec": 1,
+   "fact": "Paris is further north than Seattle, almost level with the <b>US–Canada border</b>."
+  },
+  {
+   "q": "Which city is further <u>NORTH</u>?",
+   "a": {
+    "f": "🇨🇦",
+    "n": "Calgary",
+    "v": 51.0
+   },
+   "b": {
+    "f": "🇬🇧",
+    "n": "London",
+    "v": 51.5
+   },
+   "unit": "°N",
+   "dec": 1,
+   "fact": "London is further north than <b>Calgary</b>, in Canada."
+  },
+  {
+   "q": "Which city is further <u>NORTH</u>?",
+   "a": {
+    "f": "🇺🇸",
+    "n": "New York",
+    "v": 40.7
+   },
+   "b": {
+    "f": "🇮🇹",
+    "n": "Rome",
+    "v": 41.9
+   },
+   "unit": "°N",
+   "dec": 1,
+   "fact": "Rome is further north than New York. The <b>Gulf Stream</b> keeps Europe mild."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

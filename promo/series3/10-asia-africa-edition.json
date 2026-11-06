@@ -1,0 +1,63 @@
+{
+ "hook": {
+  "tag": "🌍 ASIA & AFRICA",
+  "title": "<span class=\"grad\">#3</span> is wild 🤯",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 84
+   },
+   "b": {
+    "f": "🇻🇳",
+    "n": "Vietnam",
+    "v": 101
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Vietnam passed <b>100 million people</b> in 2023."
+  },
+  {
+   "q": "Where are there <u>MORE</u> McDonald's?",
+   "a": {
+    "f": "🇨🇳",
+    "n": "China",
+    "v": 6800
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 2980
+   },
+   "unit": "restaurants",
+   "dec": 0,
+   "fact": "China now has the <b>2nd most McDonald's</b> in the world."
+  },
+  {
+   "q": "Which country is <u>YOUNGER</u>?",
+   "a": {
+    "f": "🇮🇳",
+    "n": "India",
+    "v": 28
+   },
+   "b": {
+    "f": "🇳🇬",
+    "n": "Nigeria",
+    "v": 18
+   },
+   "unit": "median age",
+   "dec": 0,
+   "fact": "Half of Nigeria's people are <b>younger than about 18</b>.",
+   "lower": true
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

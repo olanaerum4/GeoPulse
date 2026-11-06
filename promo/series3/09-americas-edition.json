@@ -1,0 +1,63 @@
+{
+ "hook": {
+  "tag": "🌎 AMERICAS",
+  "title": "Americans get <span class=\"grad\">#1</span> wrong 😅",
+  "teaseQ": 0,
+  "teaseText": "It starts with this one 👀"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇨🇦",
+    "n": "Canada",
+    "v": 41
+   },
+   "b": {
+    "f": "🇦🇷",
+    "n": "Argentina",
+    "v": 46
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Argentina has more people than Canada, on <b>less than a third</b> of the area."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇲🇽",
+    "n": "Mexico",
+    "v": 131
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 124
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Mexico passed Japan as Japan's population <b>started to shrink</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇨🇴",
+    "n": "Colombia",
+    "v": 53
+   },
+   "b": {
+    "f": "🇪🇸",
+    "n": "Spain",
+    "v": 48
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Colombia has <b>more people than Spain</b>, its former colonial ruler."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🤯 NO WAY",
+  "title": "<span class=\"grad\">#3</span> broke my brain",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which has <u>MORE</u> time zones?",
+   "a": {
+    "f": "🇨🇳",
+    "n": "China",
+    "v": 1
+   },
+   "b": {
+    "f": "🇧🇷",
+    "n": "Brazil",
+    "v": 4
+   },
+   "unit": "zones",
+   "dec": 0,
+   "fact": "China is huge, but the whole country uses <b>one time zone</b>."
+  },
+  {
+   "q": "Which borders <u>MORE</u> countries?",
+   "a": {
+    "f": "🇧🇷",
+    "n": "Brazil",
+    "v": 10
+   },
+   "b": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 9
+   },
+   "unit": "countries",
+   "dec": 0,
+   "fact": "Brazil borders <b>every South American country</b> except Chile and Ecuador."
+  },
+  {
+   "q": "Which has <u>MORE</u> official languages?",
+   "a": {
+    "f": "🇿🇼",
+    "n": "Zimbabwe",
+    "v": 16
+   },
+   "b": {
+    "f": "🇨🇭",
+    "n": "Switzerland",
+    "v": 4
+   },
+   "unit": "languages",
+   "dec": 0,
+   "fact": "Zimbabwe has <b>16 official languages</b>, one of the most in the world."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

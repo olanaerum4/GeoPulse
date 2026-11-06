@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🧠 3/3 OR NOTHING",
+  "title": "Bet you can't get <span class=\"grad\">3/3</span>",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇷🇺",
+    "n": "Russia",
+    "v": 144
+   },
+   "b": {
+    "f": "🇧🇩",
+    "n": "Bangladesh",
+    "v": 174
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Bangladesh is about the size of <b>Greece</b>, with 174 million people."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇪🇹",
+    "n": "Ethiopia",
+    "v": 130
+   },
+   "b": {
+    "f": "🇯🇵",
+    "n": "Japan",
+    "v": 124
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Ethiopia has passed Japan and is <b>still growing fast</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇨🇦",
+    "n": "Canada",
+    "v": 41
+   },
+   "b": {
+    "f": "🇮🇶",
+    "n": "Iraq",
+    "v": 46
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Iraq has <b>more people than Canada</b>, a country 23× bigger."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

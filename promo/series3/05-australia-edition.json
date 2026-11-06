@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🦘 AUSTRALIA",
+  "title": "Australia is <span class=\"grad\">weirder</span> than you think",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> sheep?",
+   "a": {
+    "f": "🇳🇿",
+    "n": "New Zealand",
+    "v": 24
+   },
+   "b": {
+    "f": "🇦🇺",
+    "n": "Australia",
+    "v": 78
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "NZ has more sheep <b>per person</b>, but Australia has way more in total."
+  },
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇬🇭",
+    "n": "Ghana",
+    "v": 34
+   },
+   "b": {
+    "f": "🇦🇺",
+    "n": "Australia",
+    "v": 27
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Ghana has <b>7 million more people</b> than Australia."
+  },
+  {
+   "q": "Which is <u>WIDER</u>?",
+   "a": {
+    "f": "🌕",
+    "n": "The Moon",
+    "v": 3474
+   },
+   "b": {
+    "f": "🇦🇺",
+    "n": "Australia",
+    "v": 4000
+   },
+   "unit": "km",
+   "dec": 0,
+   "fact": "Australia is about <b>4,000 km wide</b>. The Moon is 3,474 km across."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}

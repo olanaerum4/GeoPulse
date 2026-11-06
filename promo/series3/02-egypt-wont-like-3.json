@@ -1,0 +1,62 @@
+{
+ "hook": {
+  "tag": "🇪🇬 EGYPT",
+  "title": "Egypt fans won't like <span class=\"grad\">#3</span> 😳",
+  "teaseText": "Wait for the last one…"
+ },
+ "questions": [
+  {
+   "q": "Which country has <u>MORE</u> people?",
+   "a": {
+    "f": "🇪🇬",
+    "n": "Egypt",
+    "v": 114
+   },
+   "b": {
+    "f": "🇩🇪",
+    "n": "Germany",
+    "v": 84
+   },
+   "unit": "million",
+   "dec": 0,
+   "fact": "Egypt has <b>30 million more people</b> than Germany."
+  },
+  {
+   "q": "Which country is <u>BIGGER</u>?",
+   "a": {
+    "f": "🇪🇸",
+    "n": "Spain",
+    "v": 506
+   },
+   "b": {
+    "f": "🇺🇦",
+    "n": "Ukraine",
+    "v": 604
+   },
+   "unit": "k km²",
+   "dec": 0,
+   "fact": "Ukraine is the <b>largest country entirely in Europe</b>."
+  },
+  {
+   "q": "Which country has <u>MORE</u> pyramids?",
+   "a": {
+    "f": "🇸🇩",
+    "n": "Sudan",
+    "v": 255
+   },
+   "b": {
+    "f": "🇪🇬",
+    "n": "Egypt",
+    "v": 138
+   },
+   "unit": "pyramids",
+   "dec": 0,
+   "fact": "Sudan's pyramids were built by the <b>Kingdom of Kush</b>."
+  }
+ ],
+ "outro": {
+  "title": "How many did you get? 👇",
+  "sub": "Comment your score",
+  "cta": "Play free · geowawe.org"
+ }
+}
